@@ -1,0 +1,81 @@
+[{
+  "ownerEmail": "client@test.com",
+  "make": "Ram",
+  "model": "2500",
+  "year": 2012,
+  "mileage": 4101.95,
+  "transmission": "Automatic",
+  "drivertrain": "4x2"
+}, {
+  "ownerEmail": "client@test.com",
+  "make": "Porsche",
+  "model": "928",
+  "year": 1991,
+  "mileage": 552.76,
+  "transmission": "Automatic",
+  "drivertrain": "Others"
+}, {
+  "ownerEmail": "client@test.com",
+  "make": "Ford",
+  "model": "Crown Victoria",
+  "year": 2008,
+  "mileage": 2649.82,
+  "transmission": "Automatic",
+  "drivertrain": "4x2"
+}, {
+  "ownerEmail": "client2@test.com",
+  "make": "Jeep",
+  "model": "Wrangler",
+  "year": 2003,
+  "mileage": 7041.65,
+  "transmission": "Others",
+  "drivertrain": "Others"
+}, {
+  "ownerEmail": "client2@test.com",
+  "make": "Ford",
+  "model": "F-Series",
+  "year": 2006,
+  "mileage": 9920.5,
+  "transmission": "Others",
+  "drivertrain": "4x2"
+}, {
+  "ownerEmail": "client3@test.com",
+  "make": "Ford",
+  "model": "E250",
+  "year": 1984,
+  "mileage": 1706.51,
+  "transmission": "Automatic",
+  "drivertrain": "4x2"
+}, {
+  "ownerEmail": "client3@test.com",
+  "make": "GMC",
+  "model": "Yukon",
+  "year": 1992,
+  "mileage": 1157.14,
+  "transmission": "Others",
+  "drivertrain": "4x2"
+}, {
+  "ownerEmail": "client3@test.com",
+  "make": "Buick",
+  "model": "Riviera",
+  "year": 1992,
+  "mileage": 5715.22,
+  "transmission": "Others",
+  "drivertrain": "4x2"
+}, {
+  "ownerEmail": "client3@test.com",
+  "make": "BMW",
+  "model": "525",
+  "year": 2006,
+  "mileage": 8442.02,
+  "transmission": "Automatic",
+  "drivertrain": "Others"
+}, {
+  "ownerEmail": "client4@test.com",
+  "make": "Volvo",
+  "model": "XC90",
+  "year": 2009,
+  "mileage": 8183.19,
+  "transmission": "Automatic",
+  "drivertrain": "4x2"
+}]
