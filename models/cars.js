@@ -20,7 +20,7 @@ const carSchema = new mongoose.Schema({
     transmission: {
       type: String
     },
-    drivertrain: {
+    drivetrain: {
       type: String
     }
 });

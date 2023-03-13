@@ -5,7 +5,7 @@
   "year": 2012,
   "mileage": 4101.95,
   "transmission": "Automatic",
-  "drivertrain": "4x2"
+  "drivetrain": "4x2"
 }, {
   "ownerEmail": "client@test.com",
   "make": "Porsche",
@@ -13,7 +13,7 @@
   "year": 1991,
   "mileage": 552.76,
   "transmission": "Automatic",
-  "drivertrain": "Others"
+  "drivetrain": "Others"
 }, {
   "ownerEmail": "client@test.com",
   "make": "Ford",
@@ -21,7 +21,7 @@
   "year": 2008,
   "mileage": 2649.82,
   "transmission": "Automatic",
-  "drivertrain": "4x2"
+  "drivetrain": "4x2"
 }, {
   "ownerEmail": "client2@test.com",
   "make": "Jeep",
@@ -29,7 +29,7 @@
   "year": 2003,
   "mileage": 7041.65,
   "transmission": "Others",
-  "drivertrain": "Others"
+  "drivetrain": "Others"
 }, {
   "ownerEmail": "client2@test.com",
   "make": "Ford",
@@ -37,7 +37,7 @@
   "year": 2006,
   "mileage": 9920.5,
   "transmission": "Others",
-  "drivertrain": "4x2"
+  "drivetrain": "4x2"
 }, {
   "ownerEmail": "client3@test.com",
   "make": "Ford",
@@ -45,7 +45,7 @@
   "year": 1984,
   "mileage": 1706.51,
   "transmission": "Automatic",
-  "drivertrain": "4x2"
+  "drivetrain": "4x2"
 }, {
   "ownerEmail": "client3@test.com",
   "make": "GMC",
@@ -53,7 +53,7 @@
   "year": 1992,
   "mileage": 1157.14,
   "transmission": "Others",
-  "drivertrain": "4x2"
+  "drivetrain": "4x2"
 }, {
   "ownerEmail": "client3@test.com",
   "make": "Buick",
@@ -61,7 +61,7 @@
   "year": 1992,
   "mileage": 5715.22,
   "transmission": "Others",
-  "drivertrain": "4x2"
+  "drivetrain": "4x2"
 }, {
   "ownerEmail": "client3@test.com",
   "make": "BMW",
@@ -69,7 +69,7 @@
   "year": 2006,
   "mileage": 8442.02,
   "transmission": "Automatic",
-  "drivertrain": "Others"
+  "drivetrain": "Others"
 }, {
   "ownerEmail": "client4@test.com",
   "make": "Volvo",
@@ -77,5 +77,5 @@
   "year": 2009,
   "mileage": 8183.19,
   "transmission": "Automatic",
-  "drivertrain": "4x2"
+  "drivetrain": "4x2"
 }]

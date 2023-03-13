@@ -1,10 +1,15 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
+// Components
 import LoginAdmin from "./components/admin/loginAdmin";
+import ClientReg from "./components/client/clientReg";
+import LoginUser from "./components/client/loginUser";
 import MainStore from "./components/store/mainStore";
 // CSS
 import './css/admin/loginAdmin.css';
+import './css/client/loginUser.css';
+import './css/client/clientReg.css';
 
 
 function App() {
@@ -57,6 +62,44 @@ function App() {
 
     navigate('/');
   }
+  // SIGNUP for users
+  const handleSignup = (type='client', new_obj) => {
+    if (type === 'client') {
+      // save client profile
+      const url_client = urlhead + '/client';
+      const newclient = {
+        email: new_obj.email,
+        password: new_obj.pwd,
+        name: new_obj.name,
+        phoneNumber: new_obj.phoneNum,
+        surName: new_obj.surname
+      }
+      axios.post(url_client, newclient);
+
+      // save cars
+      const url_car = urlhead + '/car';
+      var newcar;
+      new_obj.cars.forEach(c => {
+        newcar = {
+          ownerEmail: new_obj.email,
+          make: c.make,
+          model: c.model,
+          year: c.year,
+          mileage: c.mileage,
+          transmission: c.transmission,
+          drivetrain: c.drivetrain
+        };
+        axios.post(url_car, newcar);
+      });
+    }
+    else {
+      const url_store = urlhead + '/store';
+      // axios.post(url_store, newstore);
+    }
+
+    // navigate back to login page
+    navigate('/');
+  }
 
 
   // ADMIN operation
@@ -94,10 +137,21 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        {/* admin routes */}
         <Route path="/admin" element={
           <LoginAdmin loginFunction={handleLogin} />
         } />
-        <Route path="/mainstore" element={
+
+        {/* client routes */}
+        <Route path="/" element={
+          <LoginUser loginFunction={handleLogin} />
+        } />
+        <Route path="/clientReg" element={
+          <ClientReg signupFunction={handleSignup} />
+        } />
+
+        {/* store routes */}
+        <Route path="/storeHome" element={
           <MainStore />
         } />
       </Routes>
