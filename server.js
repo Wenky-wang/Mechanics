@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cors());
 app.use(express.static("public"));
 
@@ -366,33 +366,16 @@ app.get("/store/:email", async (req,res) => {
     });
   } catch (err) { console.log("ERROR: ", err); }
 });
-// app.get("/store", async (req,res) => {
-//   try {
-//     await mongoose.connect(url);
-//     console.log("database connected");
-
-//     Stores.find(
-//       (err, storedata) => {
-//       if (err) {
-//         res.send("ERROR: ", err);
-//         console.log("ERROR: ", err);
-//       }
-//       else {
-//         console.log("# Store: data loaded");
-//         res.send(storedata);
-//         mongoose.connection.close();
-//       }
-//     });
-//   } catch (err) { console.log("ERROR: ", err); }
-// });
 // ADD
 app.post("/store", async (req,res) => {
   try {
-      const { email, password, name, phoneNumber, supName, fax, desc, 
-        address, city, province, postalCode, service, defaultQuota } = req.body;  // Attributes
+      const { name, email, password, phoneNumber, supName, address, city, 
+        province, postalCode, description, facebook, instagram, 
+        service, defaultQuota, imgurl } = req.body;  // Attributes
       const newStore = new Stores({
-        email, password, name, phoneNumber, supName, fax, desc, 
-        address, city, province, postalCode, service, defaultQuota
+        name, email, password, phoneNumber, supName, address, city, 
+        province, postalCode, description, facebook, instagram, 
+        service, defaultQuota, imgurl
       })
       
       await mongoose.connect(url); 

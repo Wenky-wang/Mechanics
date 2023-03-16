@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const storeSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, "account name cannot be empty"]
+    },
     email: {
         type: String,
         required: [true, "email can not be empty"],
@@ -10,20 +14,10 @@ const storeSchema = new mongoose.Schema({
         type: String,
         required: [true, "password cannot be empty"]
     },
-    name: {
-        type: String,
-        required: [true, "account name cannot be empty"]
-    },
     phoneNumber: {
         type: String
     },
     supName: {
-        type: String
-    },
-    fax: {
-        type: String
-    },
-    desc: {
         type: String
     },
     address: {
@@ -38,11 +32,23 @@ const storeSchema = new mongoose.Schema({
     postalCode: {
         type: String
     },
+    description: {
+        type: String
+    },
+    facebook: {
+        type: String
+    },
+    instagram: {
+        type: String
+    },
     service: {
         type: Array
     },
     defaultQuota: {
         type: Number
+    },
+    imgurl: {
+        type: String
     }
 });
   

@@ -61,7 +61,8 @@ const ClientReg = ({signupFunction=f=>f}) => {
         if (agree) setAgree(false);
         else setAgree(true);
     }
-    const addCar = () => {
+    const addCar = (event) => {
+        event.preventDefault();
         const newcar = {
             id: carsid,
             make: '',
@@ -90,7 +91,7 @@ const ClientReg = ({signupFunction=f=>f}) => {
     <div className="cl_reg_page_container">
         <div className="cl_reg_page_title">Registration</div>
         <div className="cl_reg_page_content">
-            <form onSubmit={onSignup}>
+            <form>
                 <div className="cl_reg_page_user-details">
                     <div className="cl_reg_page_input-box">
                         <span className="cl_reg_page_details">Email*</span>
@@ -136,7 +137,7 @@ const ClientReg = ({signupFunction=f=>f}) => {
                     *By clicking this button, you are accepting our data privacy policy nasdjlfajdflkjsldfjsljfdl;sadkflsajfa
                 </div>
                 <div className="cl_reg_page_button_submit">
-                    <input type="submit" value="Submit" /> 
+                    <input type="submit" value="Submit" onClick={onSignup} /> 
                 </div>
             </form>
         </div>

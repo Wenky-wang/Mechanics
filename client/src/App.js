@@ -4,12 +4,14 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 // Components
 import LoginAdmin from "./components/admin/loginAdmin";
 import ClientReg from "./components/client/clientReg";
-import LoginUser from "./components/client/loginUser";
-import MainStore from "./components/store/mainStore";
+import LoginUser from "./components/user/loginUser";
+import StoreReg from "./components/store/storeReg";
+import StoreHome from "./components/store/storeHome";
 // CSS
 import './css/admin/loginAdmin.css';
-import './css/client/loginUser.css';
+import './css/user/loginUser.css';
 import './css/client/clientReg.css';
+import './css/store/storeReg.css';
 
 
 function App() {
@@ -94,7 +96,24 @@ function App() {
     }
     else {
       const url_store = urlhead + '/store';
-      // axios.post(url_store, newstore);
+      const newstore = {
+        name: new_obj.name,
+        email: new_obj.email,
+        password: new_obj.pwd,
+        phoneNumber: new_obj.phoneNum,
+        supName: new_obj.supName,
+        address: new_obj.address,
+        city: new_obj.city,
+        province: new_obj.province,
+        postalCode: new_obj.postal,
+        description: new_obj.desc,
+        facebook: new_obj.facebook,
+        instagram: new_obj.ins,
+        service: new_obj.service,
+        defaultQuota: new_obj.quota,
+        imgurl: new_obj.pic
+      }
+      axios.post(url_store, newstore);
     }
 
     // navigate back to login page
@@ -142,17 +161,22 @@ function App() {
           <LoginAdmin loginFunction={handleLogin} />
         } />
 
-        {/* client routes */}
+        {/* user routes */}
         <Route path="/" element={
           <LoginUser loginFunction={handleLogin} />
         } />
+
+        {/* client routes */}
         <Route path="/clientReg" element={
           <ClientReg signupFunction={handleSignup} />
         } />
 
         {/* store routes */}
+        <Route path="/storeReg" element={
+          <StoreReg signupFunction={handleSignup} />
+        } />
         <Route path="/storeHome" element={
-          <MainStore />
+          <StoreHome />
         } />
       </Routes>
     </div>

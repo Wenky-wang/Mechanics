@@ -71,7 +71,7 @@ cardata.forEach(dat => {
     year: dat.year,
     mileage: dat.mileage,
     transmission: dat.transmission,
-    drivertrain: dat.drivertrain
+    drivetrain: dat.drivetrain
   });
 
   // save document to db
@@ -105,19 +105,21 @@ const storedata = require("./collections/stores.json");
 storedata.forEach(dat => {
   // create document
   let store = new Stores({
+    name: dat.name,
     email: dat.email,
     password: dat.password,
-    name: dat.name,
     phoneNumber: dat.phoneNumber,
     supName: dat.supName,
-    fax: dat.fax,
-    desc: dat.desc,
     address: dat.address,
     city: dat.city,
     province: dat.province,
     postalCode: dat.postalCode,
+    description: dat.description,
+    facebook: dat.facebook,
+    instagram: dat.instagram,
     service: dat.service,
-    defaultQuota: dat.defaultQuota
+    defaultQuota: dat.defaultQuota,
+    imgurl: dat.imgurl
   });
 
   // save document to db
