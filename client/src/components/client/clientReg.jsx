@@ -1,9 +1,14 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {  Link } from 'react-router-dom';
 import ClientRegCar from './clientRegCar';
 
 const ClientReg = ({signupFunction=f=>f}) => {
+    
+    useEffect(() => {
+        document.title = "Client Registration";  
+    }, []);
+    
     const [email, setEmail] = useState('');
     const [phoneNum, setPhoneNum] = useState('');
     const [name, setName] = useState('');
@@ -95,32 +100,32 @@ const ClientReg = ({signupFunction=f=>f}) => {
                 <div className="cl_reg_page_user-details">
                     <div className="cl_reg_page_input-box">
                         <span className="cl_reg_page_details">Email*</span>
-                        <input type="text" placeholder="abc@xyz.com"
+                        <input type="text" placeholder="abc@xyz.com" name='email'
                             onChange={(event) => setEmail(event.target.value)} /> 
                     </div>
                     <div className="cl_reg_page_input-box">
                         <span className="cl_reg_page_details">Phone Number</span>
-                        <input type="text" placeholder="(1)___ ___ ____" 
+                        <input type="text" placeholder="(1)___ ___ ____" name='phone'
                             onChange={(event) => setPhoneNum(event.target.value)} />
                     </div>
                     <div className="cl_reg_page_input-box">
                         <span className="cl_reg_page_details">Name*</span>
-                        <input type="text" placeholder="Enter your name"  
+                        <input type="text" placeholder="Enter your name" name='name'
                             onChange={(event) => setName(event.target.value)} /> 
                     </div>
                     <div className="cl_reg_page_input-box">
                         <span className="cl_reg_page_details">Surname</span>
-                        <input type="text" placeholder="Enter your surname" 
+                        <input type="text" placeholder="Enter your surname" name='surname'
                             onChange={(event) => setSurName(event.target.value)} />
                     </div>
                     <div className="cl_reg_page_input-box">
                         <span className="cl_reg_page_details">Password*</span>
-                        <input type="text" placeholder="Enter your password" 
+                        <input type="text" placeholder="Enter your password" name='pwd'
                             onChange={(event) => setPwd(event.target.value)} /> 
                     </div>
                     <div className="cl_reg_page_input-box">
                         <span className="cl_reg_page_details">Confirm Password*</span>
-                        <input type="text" placeholder="Confirm your password" 
+                        <input type="text" placeholder="Confirm your password" name='pwd_confirm'
                             onChange={(event) => setPwd_confirm(event.target.value)} /> 
                     </div>
                 </div>
@@ -132,12 +137,12 @@ const ClientReg = ({signupFunction=f=>f}) => {
                 <button className='cl_reg_page_add' onClick={addCar}>Add more car</button>
 
                 <div className='cl_reg_page_policy'>
-                    <input type="checkbox" onClick={shiftAgree} />
+                    <input type="checkbox" onClick={shiftAgree} name='agree' />
                     &nbsp;
                     *By clicking this button, you are accepting our data privacy policy nasdjlfajdflkjsldfjsljfdl;sadkflsajfa
                 </div>
                 <div className="cl_reg_page_button_submit">
-                    <input type="submit" value="Submit" onClick={onSignup} /> 
+                    <input type="submit" value="Submit" onClick={onSignup} name='submitBtn' /> 
                 </div>
             </form>
         </div>

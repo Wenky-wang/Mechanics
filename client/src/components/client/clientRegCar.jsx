@@ -8,7 +8,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
             &nbsp; Vehicle Information - Please enter a vehicle
             <div className="cl_reg_page_input-box">
                 <span className="cl_reg_page_details">Make*</span>
-                <input type="text" placeholder="Toyota"
+                <input type="text" placeholder="Toyota" name='make'
                     onChange={(event) => updateFunc(
                         info.id,
                         event.target.value, 
@@ -20,7 +20,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
             </div>
             <div className="cl_reg_page_input-box">
                 <span className="cl_reg_page_details">Model</span>
-                <input type="text" placeholder="Corolla"
+                <input type="text" placeholder="Corolla" name='model'
                     onChange={(event) => updateFunc(
                         info.id,
                         info.make, 
@@ -32,7 +32,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
             </div>
             <div className="cl_reg_page_input-box">
                 <span className="cl_reg_page_details">Year</span>
-                <input type="text" placeholder="2005"
+                <input type="text" placeholder="2005" name='year'
                     onChange={(event) => updateFunc(
                         info.id,
                         info.make, 
@@ -44,7 +44,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
             </div>
             <div className="cl_reg_page_input-box">
                 <span className="cl_reg_page_details">mileage</span>
-                <input type="text" placeholder="100K"
+                <input type="text" placeholder="100K" name='mileage'
                     onChange={(event) => updateFunc(
                         info.id,
                         info.make, 
@@ -56,7 +56,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
             </div>
             <div className="cl_reg_page_input-box">
                 <span className="cl_reg_page_details">Transmission</span>
-                <input type="text" placeholder="Auto"
+                <input type="text" placeholder="Auto" name='transmission'
                     onChange={(event) => updateFunc(
                         info.id,
                         info.make, 
@@ -68,7 +68,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
             </div>
             <div className="cl_reg_page_input-box">
                 <span className="cl_reg_page_details">Drivetrain</span>
-                <input type="text" placeholder="4x2"
+                <input type="text" placeholder="4x2" name='drivetrain'
                     onChange={(event) => updateFunc(
                         info.id,
                         info.make, 

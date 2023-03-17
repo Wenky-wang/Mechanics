@@ -1,8 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import sampleImg from '../../resource/storeSample.jpg';
 
 const StoreReg = ({signupFunction=f=>f}) => {
+    useEffect(() => {
+        document.title = "Store Registration";  
+    }, []);
+
     // registration info
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

@@ -7,6 +7,7 @@ import ClientReg from "./components/client/clientReg";
 import LoginUser from "./components/user/loginUser";
 import StoreReg from "./components/store/storeReg";
 import StoreHome from "./components/store/storeHome";
+import ClientHome from "./components/client/clientHome";
 // CSS
 import './css/admin/loginAdmin.css';
 import './css/user/loginUser.css';
@@ -169,6 +170,9 @@ function App() {
         {/* client routes */}
         <Route path="/clientReg" element={
           <ClientReg signupFunction={handleSignup} />
+        } />
+        <Route path="/clientHome" element={
+          <ClientHome />
         } />
 
         {/* store routes */}

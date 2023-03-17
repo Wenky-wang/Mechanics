@@ -1,8 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {  Link } from 'react-router-dom';
 
 const LoginUser = ({loginFunction=f=>f}) => {
+    useEffect(() => {
+        document.title = "Mechanics Login";  
+    }, []);
+
     const [user, setUser] = useState('client');
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
@@ -12,7 +16,6 @@ const LoginUser = ({loginFunction=f=>f}) => {
         loginFunction(email, pwd, user);
     }
     
-
     return ( 
     <div className="loginUser-body">
         <div className="loginUser-main">
