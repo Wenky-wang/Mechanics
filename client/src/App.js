@@ -13,6 +13,9 @@ import './css/admin/loginAdmin.css';
 import './css/user/loginUser.css';
 import './css/client/clientReg.css';
 import './css/store/storeReg.css';
+import './css/client/clientHome.css';
+import './css/store/storeHome.css';
+import './css/store/storeHeader.css';
 
 
 function App() {

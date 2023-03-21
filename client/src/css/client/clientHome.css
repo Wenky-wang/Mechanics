@@ -1,0 +1,119 @@
+.cl_mp_header {
+    border: 1px solid black;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    margin: 5px 0 5px 0;
+}
+
+.cl_mp_wrapper {
+    display: flex;
+}
+
+.cl_mp_left {
+    background-color: lightblue;
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+
+.cl_mp_left_one {
+    background-color: rgb(173, 182, 230);
+    margin: 10px;
+    width: 100%;
+}
+
+.cl_mp_left_two
+{
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    background-color: rgb(173, 182, 230);
+    margin: 10px;
+    width: 100%;
+    
+}
+
+.cl_mp_left_three {
+    background-color: rgb(173, 182, 230);
+    margin: 10px;
+    width: 100%;
+}
+
+.cl_mp_left_four {
+    background-color: rgb(173, 182, 230);
+    margin: 10px;
+    width: 100%;
+}
+
+.cl_mp_right {
+    
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.cl_mp_search {
+    position: relative;
+    height: 50px;
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid black;
+    margin: 20px 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.cl_mp_search_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cl_mp_search input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  padding: 0 155px 0 65px;
+  background-color: transparent;
+}
+.cl_mp_search_button {
+  right: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  background-color: #4070f4;
+  cursor: pointer;
+}
+
+.cl_mp_sel_pics{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    
+}
+
+.cl_mp_sel_pics_one,
+.cl_mp_sel_pics_two,
+.cl_mp_sel_pics_three,
+.cl_mp_sel_pics_four,
+.cl_mp_sel_pics_five,
+.cl_mp_sel_pics_six  {
+    margin: 5px 5px 0 5px;
+    flex-basis: calc(50% - 20px);
+}
+
+.cl_mp_img{
+    width: 100%;
+    height: auto;
+}
