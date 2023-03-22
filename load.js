@@ -139,7 +139,7 @@ for (let i=0; i<=364; i++) {
 
 storedata.forEach(st => {
   alldates.forEach(da => {
-    for (let j=9; j<=16; j++) {
+    for (let j=8; j<=18; j++) {
       let ava = new Availability({
         ownerEmail: st.email,
         date: da,

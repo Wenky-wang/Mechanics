@@ -36,6 +36,14 @@ const ClientReg = ({signupFunction=f=>f}) => {
         event.preventDefault();
 
         // validation
+        if (email === "") {
+            alert("Please provide your email for registration");
+            return;
+        }
+        if (name === "") {
+            alert("Please provide an account name");
+            return;
+        }
         if (pwd !== pwd_confirm) {
             alert("Password need to be the same as confirmed");
             return;

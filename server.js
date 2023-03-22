@@ -472,31 +472,48 @@ app.get("/ava/:email", async (req,res) => {
 //     });
 //   } catch (err) { console.log("ERROR: ", err); }
 // });
-// ADD
-// app.post("/ava", async (req,res) => {
-//   try {
-//       const { ownerEmail, timeSlot, totalQuota } = req.body;
-//       const bookedQuota = 0;
-//       const newAva = new Availability({
-//         ownerEmail, timeSlot, totalQuota, bookedQuota
-//       })
-      
-//       await mongoose.connect(url); 
-//       console.log("database connected");
 
-//       newAva.save((err) => {
-//           if (err) {
-//             res.send("ERROR: ", err);
-//             console.log("ERROR: ", err);
-//           }
-//           else {
-//               console.log("# Ava: new document added");
-//               res.send("# Ava: new document added");
-//               mongoose.connection.close();
-//           }
-//       })
-//     }  catch(err) { console.log("ERROR: ", err); }
-// })
+// ADD
+app.post("/ava", async (req,res) => {
+  try {
+      const { ownerEmail, totalQuota } = req.body;
+      const bookedQuota = 0;
+      // create all days
+      for (let i=0; i<=364; i++) {
+        var eachday = new Date("2023-01-01");
+        eachday.setDate(eachday.getDate() + i);
+        alldates.push(`${eachday.getFullYear()}-${eachday.getMonth()+1}-${eachday.getDate()}`);
+      }
+
+      await mongoose.connect(url); 
+      console.log("database connected");
+
+      // save all availability
+      alldates.forEach(da => {
+        for (let j=8; j<=18; j++) {
+          let newAva = new Availability({
+            ownerEmail,
+            date: da,
+            timeSlot: j,
+            totalQuota,
+            bookedQuota: 0
+          })
+      
+          newAva.save((err) => {
+            if (err) {
+              res.send("ERROR: ", err);
+              console.log("ERROR: ", err);
+            }
+            else {
+                console.log("# Ava: new document added");
+                res.send("# Ava: new document added");
+                mongoose.connection.close();
+            }
+          })
+        }
+      })
+    }  catch(err) { console.log("ERROR: ", err); }
+})
 // UPDATE
 app.put("/ava/:email/:date/:time", async (req,res) => {
   try {

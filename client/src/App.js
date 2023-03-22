@@ -23,49 +23,40 @@ function App() {
   // const variables declaration
   const urlhead = "http://localhost:5000";
   const navigate = useNavigate();
-  const [clientOnline, setClientOnline] = useState({});
-  const [storeOnline, setStoreOnline] = useState({});
-  const [adminOnline, setAdminOnline] = useState({});
-
-
+  const [account, setAccount] = useState({});
 
   // LOGIN (for admin, client, and stores)
   const handleLogin = async (email="", pwd="", typeLogin="client") => {
     // verify if user input the email
-    if (email === "") alert("Please input an account email for login.")
-    else {
-      const url = `${urlhead}/${typeLogin}/${email}`;
-      axios.get(url).then((res) => {
+    if (email === "") {
+      alert("Please input an account email for login.");
+      return;
+    }
+
+    // login
+    const url = `${urlhead}/${typeLogin}/${email}`;
+    await axios
+      .get(url)
+      .then((res) => {
         // verify if account exists
         if (res.data.length === 0) alert("Sorry no such account.");
         else {
           // verify if password match with database
           if (res.data[0].password !== pwd) alert("Password incorrect. Please re-enter.");
           else {
+            setAccount(res.data[0]);
+
             // password correct, figure out which page to go based on login type
-            if (typeLogin === 'admin') {
-              setAdminOnline(res.data[0]);
-              navigate('/adminHome');
-            }
-            else if (typeLogin === 'store') {
-              setStoreOnline(res.data[0]);
-              navigate('/storeHome');
-            }
-            else {
-              setClientOnline(res.data[0]);
-              navigate('/clientHome');
-            }
+            if (typeLogin === 'admin') navigate('/adminHome');
+            else if (typeLogin === 'store') navigate('/storeHome')
+            else navigate('/clientHome');
           }
         }
       })
-    }
   }
   // LOGOUT (for admin, client, and stores)
   const handleLogout = (typeLogout="client") => {
-    if (typeLogout === "admin") setAdminOnline({});
-    else if (typeLogout === "store") setStoreOnline({});
-    else setClientOnline({});
-
+    setAccount([]);
     navigate('/');
   }
   // SIGNUP for users
@@ -99,6 +90,7 @@ function App() {
       });
     }
     else {
+      // store
       const url_store = urlhead + '/store';
       const newstore = {
         name: new_obj.name,
@@ -118,39 +110,27 @@ function App() {
         imgurl: new_obj.pic
       }
       axios.post(url_store, newstore);
+
+      // save availabilities
+      const url_ava = urlhead + '/ava';
+      const newAva = {
+        ownerEmail: new_obj.email,
+        totalQuota: new_obj.quota
+      }
+      axios.post(url_ava, newAva);
     }
 
     // navigate back to login page
     navigate('/');
   }
 
+  // Store function
+  const updateAva = async (email) => {
 
-  // ADMIN operation
-  // 1) add store
-  const adminAddStore = (email="", password="", name="", phoneNumber="", supName="", fax="", 
-                        desc="", address="", city="", province="", postalCode="", service=[], availability={}) => {
-    // validation
-    if (email === "") {
-      alert("Please input email.");
-      return false;
-    }
-    if (password === "") {
-      alert("Please input password.");
-      return false;
-    }
-    if (name === "") {
-      alert("Please input a name.");
-      return false;
-    }
-    
-    // after passing all validation, input data into database
-    const newStore = {email, password, name, phoneNumber, supName, fax, desc, address, city, province, postalCode, service, availability};
-    const url = `${urlhead}/store`;
-    axios.post(url, newStore);
-    return true;  // true means data inserted successfully
   }
 
-  // 2) delete account (for clients and stores)
+  // ADMIN operation
+  // 1) delete account (for clients and stores)
   const adminDeleteAccount = (email, accType) => {
     const url = `${urlhead}/${accType}/${email}`;
     axios.delete(url);
@@ -183,7 +163,7 @@ function App() {
           <StoreReg signupFunction={handleSignup} />
         } />
         <Route path="/storeHome" element={
-          <StoreHome />
+          <StoreHome acc_email={account.email} url_head={urlhead} />
         } />
       </Routes>
     </div>

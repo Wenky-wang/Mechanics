@@ -35,8 +35,40 @@ const StoreReg = ({signupFunction=f=>f}) => {
         event.preventDefault();
 
         // validation
+        if (name === "") {
+            alert("Please provide your company name");
+            return;
+        }
+        if (email === "") {
+            alert("Please provide your email");
+            return;
+        }
         if (pwd !== pwd_confirm) {
             alert("Password need to be the same as confirmed");
+            return;
+        }
+        if (supName === "") {
+            alert("Please provide your supervisor name");
+            return;
+        }
+        if (phoneNum === "") {
+            alert("Please provide a phone number");
+            return;
+        }
+        if (address === "") {
+            alert("Please provide your address");
+            return;
+        }
+        if (city === "") {
+            alert("Please provide your city");
+            return;
+        }
+        if (province === "") {
+            alert("Please provide your province");
+            return;
+        }
+        if (province === "") {
+            alert("Please provide your postal code");
             return;
         }
         if (!agree) {
@@ -110,45 +142,45 @@ const StoreReg = ({signupFunction=f=>f}) => {
                 <hr ></hr>
                 <h4>Registration Information</h4>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Company Name</span>
+                    <span className="store_reg_page_details">* Company Name</span>
                     <input type="text" placeholder="Company Name" onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Email</span>
+                    <span className="store_reg_page_details">* Email</span>
                     <input type="text" placeholder="xyz@abc.com" onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Password</span>
+                    <span className="store_reg_page_details">* Password</span>
                     <input type="text" placeholder="******" onChange={(e) => setPwd(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Confirm Password</span>
+                    <span className="store_reg_page_details">* Confirm Password</span>
                     <input type="text" placeholder="******" onChange={(e) => setPwd_confirm(e.target.value)} />
                 </div>
 
                 <h4>Store Information</h4>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Supervisor Name</span>
+                    <span className="store_reg_page_details">* Supervisor Name</span>
                     <input type="text" onChange={(e) => setSupName(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Telephone</span>
+                    <span className="store_reg_page_details">* Telephone</span>
                     <input type="text" placeholder="(1)___ ___ ____" onChange={(e) => setPhoneNum(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Address Line</span>
+                    <span className="store_reg_page_details">* Address Line</span>
                     <input type="text" onChange={(e) => setAddress(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">City</span>
+                    <span className="store_reg_page_details">* City</span>
                     <input type="text" onChange={(e) => setCity(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Province</span>
+                    <span className="store_reg_page_details">* Province</span>
                     <input type="text" onChange={(e) => setProvince(e.target.value)} />
                 </div>
                 <div className="store_reg_page_input-box">
-                    <span className="store_reg_page_details">Postal Code</span>
+                    <span className="store_reg_page_details">* Postal Code</span>
                     <input type="text" placeholder="XXX XXX" onChange={(e) => setPostal(e.target.value)} />
                 </div>
                 

@@ -1,0 +1,104 @@
+.Admin_Main_Page_Body{
+    
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+.Admin_Main_Page_Header{
+    text-align: center;
+    margin: 15px;
+}
+
+.Admin_Main_Page_wrapper{
+    
+    margin: 0 auto;
+    width: 80%;
+
+    
+    
+}
+
+.Admin_Main_Page_Search {
+    position: relative;
+    height: 50px;
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid black;
+    
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    margin: 0 auto;
+    
+    
+}
+
+
+.ad_mp_search_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+}
+
+.Admin_Main_Page_Search input {
+  height: 100%;
+  width: 50%;
+  outline: none;
+  font-size: 12px;
+  font-weight: 400;
+  border: none;
+  padding: 0 155px 0 25px;
+  background-color: transparent;
+  
+  
+}
+.ad_mp_search_button {
+  right: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  background-color: #4070f4;
+  cursor: pointer;
+}
+
+
+.Admin_Main_Page_CheckBox{
+    
+    background-color: lightyellow;
+    width: 50%;
+    margin:  25px 0 5px 0;
+}
+
+.Admin_Main_Page_ViewList{
+    border: 1px solid #000000;
+    height: 150%;
+    
+}
+
+.Admin_Main_Page_List{
+    padding: 0;
+    margin: 5px;
+}
+
+.Admin_Main_Page_ViewList li{
+    list-style-type: none;
+}
+
+.Admin_Main_Page_Buttons{
+    display: flex;
+    justify-content: space-between
+}
+.Admin_Main_Page_AddButton{
+    margin: 5px;
+}
+.Admin_Main_Page_DeleteButton{
+    margin: 5px;
+}
