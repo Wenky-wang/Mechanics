@@ -8,6 +8,7 @@ import LoginUser from "./components/user/loginUser";
 import StoreReg from "./components/store/storeReg";
 import StoreHome from "./components/store/storeHome";
 import ClientHome from "./components/client/clientHome";
+import StoreDetail from "./components/client/storeDetail";
 // CSS
 import './css/admin/loginAdmin.css';
 import './css/user/loginUser.css';
@@ -16,6 +17,8 @@ import './css/store/storeReg.css';
 import './css/client/clientHome.css';
 import './css/store/storeHome.css';
 import './css/store/storeHeader.css';
+import './css/client/storeDetail.css';
+
 
 
 function App() {
@@ -156,6 +159,9 @@ function App() {
         } />
         <Route path="/clientHome" element={
           <ClientHome acc={account} url_head={urlhead} />
+        } />
+        <Route path="/storeDetail" element={
+          <StoreDetail url_head={urlhead} />
         } />
 
         {/* store routes */}

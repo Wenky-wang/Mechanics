@@ -72,9 +72,10 @@ app.get("/appoint/client/:email", async (req,res) => {
     });
   } catch (err) { console.log("ERROR: ", err); }
 });
-app.get("/appoint/store/:email", async (req,res) => {
+app.get("/appoint/store/:email/:close", async (req,res) => {
   try {
     const email = req.params.email;
+    const close = req.params.close;
 
     await mongoose.connect(url);
     console.log("database connected");
@@ -89,7 +90,7 @@ app.get("/appoint/store/:email", async (req,res) => {
         else {
           console.log("# Appoint: data loaded");
           res.send(appointdata);
-          mongoose.connection.close();
+          if (close === "close") mongoose.connection.close();
         }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -457,7 +458,7 @@ app.get("/ava/:email", async (req,res) => {
       { ownerEmail: email },
       (err, avadata) => {
         if (err) {
-          res.send("ERROR: ", err);
+          res.send(err);
           console.log("ERROR: ", err);
         }
         else {
