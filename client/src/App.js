@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 // Components
 import LoginAdmin from "./components/admin/loginAdmin";
@@ -155,7 +155,7 @@ function App() {
           <ClientReg signupFunction={handleSignup} />
         } />
         <Route path="/clientHome" element={
-          <ClientHome />
+          <ClientHome acc={account} url_head={urlhead} />
         } />
 
         {/* store routes */}
@@ -163,7 +163,7 @@ function App() {
           <StoreReg signupFunction={handleSignup} />
         } />
         <Route path="/storeHome" element={
-          <StoreHome acc_email={account.email} url_head={urlhead} />
+          <StoreHome acc_email={account.email} url_head={urlhead} acc_name={account.name} />
         } />
       </Routes>
     </div>

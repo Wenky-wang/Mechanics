@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import StoreHeader from './storeHeader';
+import Header from '../header';
 import StoreAvailability from './storeAvailability';
 import moment from 'moment';
 import axios from "axios";
 
-const StoreHome = ({acc_email, url_head}) => {
+const StoreHome = ({acc_email, url_head, acc_name="Store Name"}) => {
     const [accemail, setAccEmail] = useState(acc_email);
     const [urlhead, setUrlHead] = useState(url_head);
     const [avadata, setAvadata] = useState([]);
@@ -107,7 +107,7 @@ const StoreHome = ({acc_email, url_head}) => {
 
 
     return (<>
-    <StoreHeader />
+    <Header title={acc_name}/>
 
     <div className="storehome_calendar">
 

@@ -344,6 +344,24 @@ app.delete("/client/:email", async (req,res) => {
 
 /////// STORE ///////
 // GET
+app.get("/store", async (req,res) => {
+  try {
+    await mongoose.connect(url);
+    console.log("database connected");
+
+    Stores.find((err, storedata) => {
+      if (err) {
+        res.send("ERROR: ", err);
+        console.log("ERROR: ", err);
+      }
+      else {
+        console.log("# Store: data loaded");
+        res.send(storedata);
+        mongoose.connection.close();
+      }
+    });
+  } catch (err) { console.log("ERROR: ", err); }
+});
 app.get("/store/:email", async (req,res) => {
   try {
     const email = req.params.email;
