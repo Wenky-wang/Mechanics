@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from '../header';
 
 import Calendar from '../calendar';
 
-const StoreHome = ({acc_email, url_head, acc_name="Store Name"}) => {
+const StoreHome = ({store_info, url_head}) => {
     
     useEffect(() => {
-        document.title = "Store Home Page";
+        document.title = "Mechanics - Store";
     }, []);
 
     return (<>
     
-        <Header title={acc_name}/>
-        <Calendar urlhead={url_head} accemail={acc_email} user="store" />
+        <Header title={store_info.name || "Store Name"}/>
+        <Calendar urlhead={url_head} storeInfo={store_info} user="store" />
     
     </>);
 }

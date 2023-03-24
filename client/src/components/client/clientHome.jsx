@@ -11,7 +11,7 @@ const ClientHome = ({acc, url_head}) => {
 
     // set page title
     useEffect(() => {
-        document.title = "Client Home Page";  
+        document.title = "Mechanics - Client";  
     }, []);
 
     // read all store data

@@ -48,7 +48,7 @@ const StoreDetail = ({url_head}) => {
             </table>
         </div>
 
-        <Calendar user="client" accemail={state.storeInfo.email} urlhead={url_head} />
+        <Calendar user="client" urlhead={url_head} storeInfo={state.storeInfo} />
 
         <Analysis urlhead={url_head} email={state.storeInfo.email} connection="open" />
         

@@ -9,6 +9,7 @@ import StoreReg from "./components/store/storeReg";
 import StoreHome from "./components/store/storeHome";
 import ClientHome from "./components/client/clientHome";
 import StoreDetail from "./components/client/storeDetail";
+import AppointSubmit from "./components/client/appointSubmit";
 // CSS
 import './css/admin/loginAdmin.css';
 import './css/user/loginUser.css';
@@ -18,6 +19,7 @@ import './css/client/clientHome.css';
 import './css/store/storeHome.css';
 import './css/store/storeHeader.css';
 import './css/client/storeDetail.css';
+import './css/client/appointSubmit.css';
 
 
 
@@ -163,13 +165,16 @@ function App() {
         <Route path="/storeDetail" element={
           <StoreDetail url_head={urlhead} />
         } />
+        <Route path="/clientReservation" element={
+          <AppointSubmit accdata={account} url_head={urlhead} />
+        } />
 
         {/* store routes */}
         <Route path="/storeReg" element={
           <StoreReg signupFunction={handleSignup} />
         } />
         <Route path="/storeHome" element={
-          <StoreHome acc_email={account.email} url_head={urlhead} acc_name={account.name} />
+          <StoreHome store_info={account} url_head={urlhead} />
         } />
       </Routes>
     </div>

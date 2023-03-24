@@ -5,7 +5,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
-const Calendar = ({urlhead, accemail, user="store"}) => {
+const Calendar = ({urlhead, user="store", storeInfo}) => {
     const [avadata, setAvadata] = useState([]);
 
     // get days
@@ -25,7 +25,7 @@ const Calendar = ({urlhead, accemail, user="store"}) => {
 
     // read store availability
     useEffect(() => {
-        const url = `${urlhead}/ava/${accemail}`;
+        const url = `${urlhead}/ava/${storeInfo.email}`;
         axios
             .get(url)
             .then(res => {
@@ -95,7 +95,8 @@ const Calendar = ({urlhead, accemail, user="store"}) => {
             class_name = "store_detail_link_disable";
 
         if (timeInfo !== undefined)
-            return <Link to="/clientReservation"
+            return <Link to="/clientReservation" 
+            state={{ date_formatted: date.format("YYYY-M-D"), time, storeInfo }}
             className={class_name} >
                 <div>{timeInfo.totalQuota - timeInfo.bookedQuota}</div>
             </Link>;
