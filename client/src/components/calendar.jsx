@@ -107,13 +107,13 @@ const Calendar = ({urlhead, user="store", storeInfo}) => {
         if (user === "store")
             return <tr>
                 <td className="storehome_headcol">{`${time}:00 - ${time+1}:00`}</td>
-                <td><StoreAvailability assignData={() => filterAvaData(monday, time)} /></td>
-                <td><StoreAvailability assignData={() => filterAvaData(tuesday, time)} /></td>
-                <td><StoreAvailability assignData={() => filterAvaData(wednesday, time)} /></td>
-                <td><StoreAvailability assignData={() => filterAvaData(thursday, time)} /></td>
-                <td><StoreAvailability assignData={() => filterAvaData(friday, time)} /></td>
-                <td><StoreAvailability assignData={() => filterAvaData(saturday, time)} /></td>
-                <td><StoreAvailability assignData={() => filterAvaData(sunday, time)} /></td>
+                <td><StoreAvailability url_head={urlhead} storeEmail={storeInfo.email} assignData={() => filterAvaData(monday, time)} /></td>
+                <td><StoreAvailability url_head={urlhead} storeEmail={storeInfo.email} assignData={() => filterAvaData(tuesday, time)} /></td>
+                <td><StoreAvailability url_head={urlhead} storeEmail={storeInfo.email} assignData={() => filterAvaData(wednesday, time)} /></td>
+                <td><StoreAvailability url_head={urlhead} storeEmail={storeInfo.email} assignData={() => filterAvaData(thursday, time)} /></td>
+                <td><StoreAvailability url_head={urlhead} storeEmail={storeInfo.email} assignData={() => filterAvaData(friday, time)} /></td>
+                <td><StoreAvailability url_head={urlhead} storeEmail={storeInfo.email} assignData={() => filterAvaData(saturday, time)} /></td>
+                <td><StoreAvailability url_head={urlhead} storeEmail={storeInfo.email} assignData={() => filterAvaData(sunday, time)} /></td>
             </tr>
         else
             return <tr>

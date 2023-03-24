@@ -36,7 +36,6 @@ const ClientHome = ({acc, url_head}) => {
             else
                 newCityFilter = [...newCityFilter, value];
             setCityFilter(newCityFilter);
-            console.log(newCityFilter);
         }
         else {
             if (serviceFilter.includes(value))
@@ -44,7 +43,6 @@ const ClientHome = ({acc, url_head}) => {
             else
                 newServiceFilter = [...newServiceFilter, value];
             setServiceFilter(newServiceFilter);
-            console.log(newServiceFilter);
         }
 
         // after all filter reset, start reset display data
@@ -57,8 +55,11 @@ const ClientHome = ({acc, url_head}) => {
             })
             newDisplay = cityDisplay;
         }
-        if (newServiceFilter.length !== 0) {
-            newDisplay = newDisplay.filter(d => newServiceFilter.every(s => d.service.includes(s)));
+        if (newServiceFilter.length !== 0 && newDisplay.length !== 0) {
+            newServiceFilter.forEach(s => {
+                newDisplay = newDisplay.filter(d => d.service.includes(s));
+                console.log(newDisplay);
+            })
         }
         setDisplay(newDisplay);
     }

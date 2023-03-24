@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-const StoreAvailability = ({assignData=f=>f}) => {
+const StoreAvailability = ({ url_head, storeEmail, assignData=f=>f }) => {
     const [data, setData] = useState();
     const [quota, setQuota] = useState();
 
@@ -8,22 +9,37 @@ const StoreAvailability = ({assignData=f=>f}) => {
         let catchData = assignData();
         if (catchData !== undefined) {
             setData(catchData);
-            setQuota(parseInt(catchData.totalQuota) - parseInt(catchData.bookedQuota))
+            setQuota(catchData.totalQuota - catchData.bookedQuota);
         }
     }, [assignData])
+
     // action
     function addQuota() {
-        setQuota(quota + 1);
+        let newdata = data;
+        newdata.totalQuota  = data.totalQuota + 1;
+        setData(newdata);
+        setQuota(newdata.totalQuota - newdata.bookedQuota);
+        updateAva(newdata);
     }
     function redQuota() {
-        if (quota === 0) return;
-        setQuota(quota - 1);
-    }
-    function resetQuota() {
-        setQuota(parseInt(data.totalQuota));
+        if (data.totalQuota === data.bookedQuota) return;
+        let newdata = data;
+        newdata.totalQuota  = data.totalQuota - 1;
+        setData(newdata);
+        setQuota(newdata.totalQuota - newdata.bookedQuota);
+        updateAva(newdata);
     }
     function clearQuota() {
-        setQuota(0);
+        let newdata = data;
+        newdata.totalQuota  = 0;
+        setData(newdata);
+        setQuota(newdata.totalQuota - newdata.bookedQuota);
+        updateAva(newdata);
+    }
+    // update database
+    const updateAva = async(newdata) => {
+        const url_ava = `${url_head}/ava/${storeEmail}/${data.date}/${data.timeSlot}`;
+        axios.put(url_ava, newdata);
     }
 
     return ( 
@@ -35,7 +51,6 @@ const StoreAvailability = ({assignData=f=>f}) => {
             <input type="button" value=" - " onClick={redQuota} />
         </div>
         <div className="storehome_threebtn">
-            <input type="button" value="Reset" onClick={resetQuota} />
             <input type="button" value="Clear" onClick={clearQuota} />
             <input type="button" value="Detail" />
         </div>
