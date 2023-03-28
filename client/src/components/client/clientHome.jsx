@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import Header from '../header';
 import ClientHomeStore from './clientHomeStore';
+import NavBar from '../navBar';
 
 const ClientHome = ({acc, url_head}) => {
     const [storedata, setStoreData] = useState([]);
@@ -24,7 +25,7 @@ const ClientHome = ({acc, url_head}) => {
             setDisplay(res.data);
           })
           .catch((err) => console.log("ERROR in reading data from collection: ", err));
-    }, []);
+    }, [url_head]);
 
     // check box onclick handler
     const filterDisplay = (value, type='city') => {
@@ -68,6 +69,7 @@ const ClientHome = ({acc, url_head}) => {
     return ( < div className='cl_mp_body'>
 
     <Header title={"Mechanics"}/>
+    <NavBar />
     <div className="cl_mp_wrapper">
 
         <div className="cl_mp_left">

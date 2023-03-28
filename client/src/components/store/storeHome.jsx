@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../header';
 
 import Calendar from '../calendar';
+import NavBar from '../navBar';
 
 const StoreHome = ({store_info, url_head}) => {
     
@@ -12,6 +13,7 @@ const StoreHome = ({store_info, url_head}) => {
     return (<>
     
         <Header title={store_info.name || "Store Name"}/>
+        <NavBar navtype='store' />
         <Calendar urlhead={url_head} storeInfo={store_info} user="store" />
     
     </>);

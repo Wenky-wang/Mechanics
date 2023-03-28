@@ -10,6 +10,8 @@ import StoreHome from "./components/store/storeHome";
 import ClientHome from "./components/client/clientHome";
 import StoreDetail from "./components/client/storeDetail";
 import AppointSubmit from "./components/client/appointSubmit";
+import ReqDetail from "./components/reqDetail";
+import HistoryOrder from "./components/historyOrder";
 // CSS
 import './css/admin/loginAdmin.css';
 import './css/user/loginUser.css';
@@ -20,6 +22,9 @@ import './css/store/storeHome.css';
 import './css/store/storeHeader.css';
 import './css/client/storeDetail.css';
 import './css/client/appointSubmit.css';
+import './css/reqDetail.css';
+import './css/navBar.css';
+import './css/historyOrder.css';
 
 
 
@@ -58,11 +63,6 @@ function App() {
           }
         }
       })
-  }
-  // LOGOUT (for admin, client, and stores)
-  const handleLogout = (typeLogout="client") => {
-    setAccount([]);
-    navigate('/');
   }
   // SIGNUP for users
   const handleSignup = (type='client', new_obj) => {
@@ -129,11 +129,6 @@ function App() {
     navigate('/');
   }
 
-  // Store function
-  const updateAva = async (email) => {
-
-  }
-
   // ADMIN operation
   // 1) delete account (for clients and stores)
   const adminDeleteAccount = (email, accType) => {
@@ -168,6 +163,12 @@ function App() {
         <Route path="/clientReservation" element={
           <AppointSubmit accdata={account} url_head={urlhead} />
         } />
+        <Route path="/appointments" element={
+          <ReqDetail acc={account} url_head={urlhead} user="client" />
+        } />
+        <Route path="/client/history" element={
+          <HistoryOrder acc={account} url_head={urlhead} user="client" />
+        } />
 
         {/* store routes */}
         <Route path="/storeReg" element={
@@ -175,6 +176,12 @@ function App() {
         } />
         <Route path="/storeHome" element={
           <StoreHome store_info={account} url_head={urlhead} />
+        } />
+        <Route path="/requests" element={
+          <ReqDetail acc={account} url_head={urlhead} user="store" />
+        } />
+        <Route path="/store/history" element={
+          <HistoryOrder acc={account} url_head={urlhead} user="store" />
         } />
       </Routes>
     </div>
