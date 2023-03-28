@@ -95,19 +95,16 @@ app.get("/appoint/store/:email/:close", async (req,res) => {
     });
   } catch (err) { console.log("ERROR: ", err); }
 });
-app.get("/appoint/time/:timecube", async (req,res) => {
+app.get("/appoint/time/:day/:time", async (req,res) => {
   try {
-    const timecube = req.params.timecube;
+    const day = req.params.day;
+    const time = req.params.time;
 
     await mongoose.connect(url);
     console.log("database connected");
 
-    // seperate timecube as two variables
-    const daycube = timecube.substring(0,10);
-    const timeSlotCube = timecube.substring(11,13);
-
     Appointments.find(
-      { day:daycube, timeSlot:timeSlotCube },
+      { day:day, timeSlot:time },
       (err, appointdata) => {
         if (err) {
           res.send("ERROR: ", err);

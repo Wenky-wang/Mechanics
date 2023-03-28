@@ -1,4 +1,14 @@
-const Requests = ({ data, type }) => {    
+const Requests = ({ data, type, cancel="No" }) => {
+    function getButton() {
+        if (type==="store" && cancel==="Yes")
+            return <tr><button>Cancel Appointment</button> <button>Accept Appointment</button></tr>
+        else if (type === "client" && cancel==="Yes")
+            return <tr><button>Cancel Appointment</button></tr>
+        else return null;
+    }
+    
+        
+
     return (
     <table className="appointment_store_Table_One" >
         <tbody>
@@ -30,6 +40,7 @@ const Requests = ({ data, type }) => {
                 <td className="appointment_store_td" >Problem Description</td>
                 <td className="appointment_store_td" >{data.problemDesc}</td>
             </tr>
+            {getButton()}
         </tbody>
     </table>
     );

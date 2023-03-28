@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const StoreAvailability = ({ url_head, storeEmail, assignData=f=>f }) => {
     const [data, setData] = useState();
@@ -52,7 +53,7 @@ const StoreAvailability = ({ url_head, storeEmail, assignData=f=>f }) => {
         </div>
         <div className="storehome_threebtn">
             <input type="button" value="Clear" onClick={clearQuota} />
-            <input type="button" value="Detail" />
+            <Link to={"/store/orders"} state={{ data }}>Detail</Link>
         </div>
     </div> 
 );

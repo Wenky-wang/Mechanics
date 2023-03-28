@@ -164,7 +164,7 @@ function App() {
           <AppointSubmit accdata={account} url_head={urlhead} />
         } />
         <Route path="/appointments" element={
-          <ReqDetail acc={account} url_head={urlhead} user="client" />
+          <ReqDetail acc={account} url_head={urlhead} user="client" cancel_desc="Yes" />
         } />
         <Route path="/client/history" element={
           <HistoryOrder acc={account} url_head={urlhead} user="client" />
@@ -178,10 +178,13 @@ function App() {
           <StoreHome store_info={account} url_head={urlhead} />
         } />
         <Route path="/requests" element={
-          <ReqDetail acc={account} url_head={urlhead} user="store" />
+          <ReqDetail acc={account} url_head={urlhead} user="store" cancel_desc="Yes" />
         } />
         <Route path="/store/history" element={
           <HistoryOrder acc={account} url_head={urlhead} user="store" />
+        } />
+        <Route path="/store/orders" element={
+          <ReqDetail acc={account} url_head={urlhead} user="time" />
         } />
       </Routes>
     </div>

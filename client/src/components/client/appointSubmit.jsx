@@ -52,7 +52,6 @@ const AppointSubmit = ({accdata, url_head}) => {
             setDisable(false);
             setUserChoice("Auto Fill by User Profile");
         }
-        
     }
     function getCarOptions() {
         if (cardata.length === 0) 
@@ -119,8 +118,8 @@ const AppointSubmit = ({accdata, url_head}) => {
             clientName: accdata.name,
             storeName: state.storeInfo.name,
             clientPhoneNum: accdata.phoneNumber,
-            day: state.date_formatted,
-            timeSlot: state.time,
+            day: state.timeInfo.date,
+            timeSlot: state.timeInfo.date.time,
             carMake: make,
             carModel: model,
             carYear: year,
@@ -134,6 +133,17 @@ const AppointSubmit = ({accdata, url_head}) => {
             cancelledByClient: null
         }
         await axios.post(url_appoint, newApp);
+
+        // update ava database
+        const url_ava = `${url_head}/ava/${state.storeInfo.email}/${state.timeInfo.date}/${state.timeInfo.timeSlot}`;
+        const new_ava = {
+            ownerEmail: state.timeInfo.ownerEmail,
+            date: state.timeInfo.date,
+            timeSlot: state.timeInfo.timeSlot,
+            totalQuota: state.timeInfo.totalQuota,
+            bookedQuota: state.timeInfo.bookedQuota + 1
+        }
+        await axios.put(url_ava, new_ava);
 
         // send a window confirm
         if (window.confirm("Appointment Submitted!\nPress OK to back to the home page.") === true) {
@@ -166,10 +176,10 @@ const AppointSubmit = ({accdata, url_head}) => {
                 <div className="appo_submi_cust_info_input_right">
                     <label htmlFor="appo_submi_cust_info_ipnut_right_address">Appointment Date:</label>
                     <input type="text" className="appo_submi_cust_info_ipnut_right_address" name="appo_submi_cust_info_ipnut_right_address"
-                        value={state.date_formatted} disabled />
+                        value={state.timeInfo.date} disabled />
                     <label htmlFor="appo_submi_cust_info_ipnut_right_city">Appointment Time:</label>
                     <input type="text" className="appo_submi_cust_info_ipnut_right_city" name="appo_submi_cust_info_ipnut_right_city"
-                        value={`${state.time}:00 - ${state.time+1}:00`} disabled />
+                        value={`${state.timeInfo.timeSlot}:00 - ${state.timeInfo.timeSlot+1}:00`} disabled />
                 </div>
             </div>       
         </div>

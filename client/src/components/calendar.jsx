@@ -3,7 +3,7 @@ import moment from 'moment';
 import axios from "axios";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Calendar = ({urlhead, user="store", storeInfo}) => {
     const [avadata, setAvadata] = useState([]);
@@ -94,12 +94,15 @@ const Calendar = ({urlhead, user="store", storeInfo}) => {
                 && time <= thistime))
             class_name = "store_detail_link_disable";
 
-        if (timeInfo !== undefined)
+        if (timeInfo !== undefined) {
+            if (timeInfo.totalQuota - timeInfo.bookedQuota === 0) class_name = "store_detail_link_disable";
+            
             return <Link to="/clientReservation" 
-            state={{ date_formatted: date.format("YYYY-M-D"), time, storeInfo }}
+            state={{ storeInfo, timeInfo }}
             className={class_name} >
                 <div>{timeInfo.totalQuota - timeInfo.bookedQuota}</div>
             </Link>;
+        }
     }
 
     // process the availability data
