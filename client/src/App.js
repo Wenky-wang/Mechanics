@@ -59,7 +59,7 @@ function App() {
             setAccount(res.data[0]);
 
             // password correct, figure out which page to go based on login type
-            if (typeLogin === 'admin') navigate('/adminHome');
+            if (typeLogin === 'admin') navigate('/admin/home');
             else if (typeLogin === 'store') navigate('/storeHome')
             else navigate('/clientHome');
           }
@@ -149,6 +149,12 @@ function App() {
         <Route path="/admin/home" element={
           <AdminHome url_head={urlhead} />
         } />
+        <Route path="/admin/home/addClient" element={
+          <ClientReg signupFunction={handleSignup} user="admin" />
+        } />
+        <Route path="/admin/home/addStore" element={
+          <StoreReg signupFunction={handleSignup} user="admin" />
+        } />
 
         {/* user routes */}
         <Route path="/" element={
@@ -157,7 +163,7 @@ function App() {
 
         {/* client routes */}
         <Route path="/clientReg" element={
-          <ClientReg signupFunction={handleSignup} />
+          <ClientReg signupFunction={handleSignup} user="client" />
         } />
         <Route path="/clientHome" element={
           <ClientHome acc={account} url_head={urlhead} />
@@ -177,7 +183,7 @@ function App() {
 
         {/* store routes */}
         <Route path="/storeReg" element={
-          <StoreReg signupFunction={handleSignup} />
+          <StoreReg signupFunction={handleSignup} user="store" />
         } />
         <Route path="/storeHome" element={
           <StoreHome store_info={account} url_head={urlhead} />

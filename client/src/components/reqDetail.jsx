@@ -25,7 +25,8 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
             axios
             .get(url)
             .then(res => {
-                let filtered = res.data.filter(x => x.apptStatus === "In-Progress");
+                let filtered = res.data.filter(x => x.apptStatus === "In-Progress" || x.apptStatus === "Waiting Approval");
+                
                 if (filtered.length !== 0)
                     setReqData(filtered);
             })

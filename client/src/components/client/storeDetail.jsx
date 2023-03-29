@@ -3,6 +3,7 @@ import sampleImg from '../../resource/storeSample.jpg';
 import Calendar from '../calendar';
 import Header from '../header';
 import Analysis from '../analysis';
+import NavBar from "../navBar";
 
 const StoreDetail = ({url_head}) => {
     const { state } = useLocation();
@@ -10,6 +11,7 @@ const StoreDetail = ({url_head}) => {
     return (
 <div className="store_detail_body">
     <Header title={"Mechanics"}/>
+    <NavBar />
 
     <div className="store_detail_wrapper">
         <div className="store_detail_pic_and_info">

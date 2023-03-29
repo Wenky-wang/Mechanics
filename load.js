@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const url = "mongodb://localhost:27017/mechanics";
+const url = "mongodb://127.0.0.1:27017/mechanics";
 mongoose.connect(url);
 console.log("Database connected");
 
