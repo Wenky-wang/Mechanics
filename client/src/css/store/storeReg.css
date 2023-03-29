@@ -88,7 +88,7 @@
   font-weight: 500;
   margin-bottom: 5px; 
 }
-.store_reg_page_user-details > .store_reg_page_input-box > input {
+.store_reg_page_user-details > .store_reg_page_input-box > input, .store_reg_page_user-details > .store_reg_page_input-box > select {
   height: 45px;
   width: 100%;
   outline: none;
