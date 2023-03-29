@@ -12,6 +12,7 @@ import StoreDetail from "./components/client/storeDetail";
 import AppointSubmit from "./components/client/appointSubmit";
 import ReqDetail from "./components/reqDetail";
 import HistoryOrder from "./components/historyOrder";
+import AdminHome from "./components/admin/adminHome";
 // CSS
 import './css/admin/loginAdmin.css';
 import './css/user/loginUser.css';
@@ -25,6 +26,7 @@ import './css/client/appointSubmit.css';
 import './css/reqDetail.css';
 import './css/navBar.css';
 import './css/historyOrder.css';
+import './css/admin/adminHome.css';
 
 
 
@@ -143,6 +145,9 @@ function App() {
         {/* admin routes */}
         <Route path="/admin" element={
           <LoginAdmin loginFunction={handleLogin} />
+        } />
+        <Route path="/admin/home" element={
+          <AdminHome url_head={urlhead} />
         } />
 
         {/* user routes */}

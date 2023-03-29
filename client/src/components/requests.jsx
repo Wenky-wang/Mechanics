@@ -1,4 +1,5 @@
 const Requests = ({ data, type, cancel="No" }) => {
+
     function getButton() {
         if (type==="store" && cancel==="Yes")
             return <tr><button>Cancel Appointment</button> <button>Accept Appointment</button></tr>
@@ -6,7 +7,6 @@ const Requests = ({ data, type, cancel="No" }) => {
             return <tr><button>Cancel Appointment</button></tr>
         else return null;
     }
-    
         
 
     return (

@@ -262,6 +262,23 @@ app.delete("/car/:email", async (req,res) => {
 
 /////// CLIENT ///////
 // GET
+app.get("/client", async (req,res) => {
+  try {
+    await mongoose.connect(url);
+    console.log("database connected");
+
+    Clients.find((err, clientdata) => {
+        if (err) {
+          res.send("ERROR: ", err);
+          console.log("ERROR: ", err);
+        }
+        else {
+          console.log("# Client: data loaded");
+          res.status(200).send(clientdata);
+        }
+    });
+  } catch (err) { console.log("ERROR: ", err); }
+});
 app.get("/client/:email", async (req,res) => {
   try {
     const email = req.params.email;
@@ -355,7 +372,6 @@ app.get("/store", async (req,res) => {
       else {
         console.log("# Store: data loaded");
         res.send(storedata);
-        mongoose.connection.close();
       }
     });
   } catch (err) { console.log("ERROR: ", err); }
