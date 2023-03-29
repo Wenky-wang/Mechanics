@@ -60,7 +60,7 @@ form .cl_reg_page_input-box span.details{
   margin-bottom: 5px;
   
 }
-.cl_reg_page_user-details .cl_reg_page_input-box input, .cl_reg_page_vehicle_information .cl_reg_page_input-box input{
+.cl_reg_page_user-details .cl_reg_page_input-box input, .cl_reg_page_vehicle_information .cl_reg_page_input-box input, .cl_reg_page_vehicle_information .cl_reg_page_input-box select{
   height: 45px;
   width: 100%;
   outline: none;

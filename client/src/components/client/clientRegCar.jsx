@@ -16,7 +16,21 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
                         info.year, 
                         info.mileage, 
                         info.transmission, 
-                        info.drivetrain)} /> 
+                        info.drivetrain)} />
+                <select name="make" id="" onChange={(event) => updateFunc(
+                        info.id,
+                        event.target.value, 
+                        info.model, 
+                        info.year, 
+                        info.mileage, 
+                        info.transmission, 
+                        info.drivetrain)}>
+                    <option value=""> Toyota</option>
+                    <option value=""> Audi</option>
+                    <option value=""> BMW</option>
+                    <option value=""> Mercedes</option>
+                    <option value=""> Kia</option>
+              </select>
             </div>
             <div className="cl_reg_page_input-box">
                 <span className="cl_reg_page_details">Model</span>
