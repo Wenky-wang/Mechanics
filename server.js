@@ -11,7 +11,7 @@ app.use(express.static("public"));
 
 
 //* mongoDB connection url and model
-const url = "mongodb://localhost:27017/mechanics";
+const url = "mongodb://127.0.0.1:27017/mechanics";
 const Admins = require("./models/admins");
 const Appointments = require("./models/appointments");
 const Cars = require("./models/cars");

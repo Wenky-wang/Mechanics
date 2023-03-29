@@ -119,7 +119,7 @@ const AppointSubmit = ({accdata, url_head}) => {
             storeName: state.storeInfo.name,
             clientPhoneNum: accdata.phoneNumber,
             day: state.timeInfo.date,
-            timeSlot: state.timeInfo.date.time,
+            timeSlot: state.timeInfo.timeSlot,
             carMake: make,
             carModel: model,
             carYear: year,
