@@ -173,11 +173,36 @@ const StoreReg = ({signupFunction=f=>f}) => {
                 </div>
                 <div className="store_reg_page_input-box">
                     <span className="store_reg_page_details">* City</span>
-                    <input type="text" onChange={(e) => setCity(e.target.value)} />
+                    {/* <input type="text" onChange={(e) => setCity(e.target.value)} /> */}
+                    
+                    <select name="" id="" onChange={(e) => setCity(e.target.value)}>
+                        <option value=""> Vancouver</option>
+                        <option value=""> Burnaby</option>
+                        <option value=""> Surrey</option>
+                        <option value=""> North Vancouver</option>
+                        <option value=""> Coquitlam</option>
+                    </select>
+                
                 </div>
                 <div className="store_reg_page_input-box">
                     <span className="store_reg_page_details">* Province</span>
-                    <input type="text" onChange={(e) => setProvince(e.target.value)} />
+                    {/* <input type="text" onChange={(e) => setProvince(e.target.value)} /> */}
+                    
+                    <select name="" id="" onChange={(e) => setProvince(e.target.value)}>
+                        <option value=""> Alberta</option>
+                        <option value=""> British Columbia</option>
+                        <option value=""> Manitoba</option>
+                        <option value=""> Newfoundland and Labrador</option>
+                        <option value=""> Northwest Territories</option>
+                        <option value=""> Nova Scotia</option>
+                        <option value=""> Nunavut</option>
+                        <option value=""> Ontario</option>
+                        <option value=""> Prince Edward Island</option>
+                        <option value=""> Quebec</option>
+                        <option value=""> Saskatchewan</option>
+                        <option value=""> Yukon</option>
+                    </select>
+                
                 </div>
                 <div className="store_reg_page_input-box">
                     <span className="store_reg_page_details">* Postal Code</span>
