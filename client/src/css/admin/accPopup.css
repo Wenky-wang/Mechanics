@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.2);
 
@@ -12,15 +12,35 @@
 }
 
 .admin_popup_inner {
-    position: relative;
-    padding: 32px;
-    width: 100%;
-    max-width: 640px;
+    padding: 2.8vh 2.5vw;
+    width: 50vw;
     background-color: #fff;
+    border-radius: 10px;
 }
 
-.admin_popup_inner, .admin_popup_close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+.admin_popup_close {
+    position: relative;
+    float: right;
+    font-size: 1.2vw;
+    padding: 0.4vh 0.9vw;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    background-color: rgb(90, 90, 90);
+}
+.admin_popup_close:hover {
+    text-decoration: underline;
+}
+
+.admin_popup_inner > h3 {
+    font-size: 1.9vw;
+    color: rgb(62, 116, 210);
+    margin-bottom: 1.2vh;
+}
+
+.admin_popup_table > tbody > tr > td {
+    font-size: 1.12vw;
+    line-height: 2;
+    padding-right: 1vw;
 }

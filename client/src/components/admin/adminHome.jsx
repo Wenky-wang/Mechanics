@@ -97,7 +97,7 @@ const AdminHome = ({ url_head }) => {
                             trigger={ clientPopup.length===0?false: clientPopup.filter(x => x.ownerEmail === c.email)[0].popup } 
                             closePopup={() => setPopup("client", c.email, false)}>
                             <h3>Account Information</h3>
-                            <table>
+                            <table className="admin_popup_table">
                                 <tbody>
                                     <tr>
                                         <td><strong>Account Type:</strong></td>
@@ -135,7 +135,7 @@ const AdminHome = ({ url_head }) => {
                             trigger={ storePopup.length===0?false:storePopup.filter(x => x.ownerEmail === c.email)[0].popup } 
                             closePopup={() => setPopup("store", c.email, false)}>
                             <h3>Account Information</h3>
-                            <table>
+                            <table className="admin_popup_table">
                                 <tbody>
                                     <tr>
                                         <td><strong>Account Type:</strong></td>

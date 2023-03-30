@@ -185,34 +185,32 @@ const StoreReg = ({signupFunction=f=>f, user="store"}) => {
                 </div>
                 <div className="store_reg_page_input-box">
                     <span className="store_reg_page_details">* City</span>
-                    {/* <input type="text" onChange={(e) => setCity(e.target.value)} /> */}
                     
-                    <select name="" id="" onChange={(e) => setCity(e.target.value)}>
-                        <option value=""> Vancouver</option>
-                        <option value=""> Burnaby</option>
-                        <option value=""> Surrey</option>
-                        <option value=""> North Vancouver</option>
-                        <option value=""> Coquitlam</option>
+                    <select name="" onChange={(e) => setCity(e.target.value)}>
+                        <option value="">--</option>
+                        <option value="Vancouver"> Vancouver</option>
+                        <option value="Burnaby"> Burnaby</option>
+                        <option value="Surrey"> Surrey</option>
+                        <option value="Coquitlam"> Coquitlam</option>
+                        <option value="Toronto"> Toronto</option>
+                        <option value="Ottawa"> Ottawa</option>
+                        <option value="Montreal"> Montreal</option>
+                        <option value="Quebec City"> Quebec City</option>
                     </select>
                 
                 </div>
                 <div className="store_reg_page_input-box">
                     <span className="store_reg_page_details">* Province</span>
-                    {/* <input type="text" onChange={(e) => setProvince(e.target.value)} /> */}
                     
-                    <select name="" id="" onChange={(e) => setProvince(e.target.value)}>
-                        <option value=""> Alberta</option>
-                        <option value=""> British Columbia</option>
-                        <option value=""> Manitoba</option>
-                        <option value=""> Newfoundland and Labrador</option>
-                        <option value=""> Northwest Territories</option>
-                        <option value=""> Nova Scotia</option>
-                        <option value=""> Nunavut</option>
-                        <option value=""> Ontario</option>
-                        <option value=""> Prince Edward Island</option>
-                        <option value=""> Quebec</option>
-                        <option value=""> Saskatchewan</option>
-                        <option value=""> Yukon</option>
+                    <select name="" onChange={(e) => setProvince(e.target.value)}>
+                        <option value="">--</option>
+                        <option value="Alberta"> Alberta</option>
+                        <option value="British Columbia"> British Columbia</option>
+                        <option value="Manitoba"> Manitoba</option>
+                        <option value="Nova Scotia"> Nova Scotia</option>
+                        <option value="Ontario"> Ontario</option>
+                        <option value="Quebec"> Quebec</option>
+                        <option value="Saskatchewan"> Saskatchewan</option>
                     </select>
                 
                 </div>
