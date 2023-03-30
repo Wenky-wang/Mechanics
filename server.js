@@ -40,7 +40,7 @@ app.get("/admin/:email", async (req,res) => {
       else {
         console.log("# Admin: data loaded");
         res.send(admindata);
-        mongoose.connection.close();
+        // mongoose.connection.close();
       }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -67,7 +67,7 @@ app.get("/appoint/client/:email", async (req,res) => {
         else {
           console.log("# Appoint: data loaded");
           res.send(appointdata);
-          mongoose.connection.close();
+          // mongoose.connection.close();
         }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -113,7 +113,7 @@ app.get("/appoint/time/:day/:time", async (req,res) => {
         else {
           console.log("# Appoint: data loaded");
           res.send(appointdata);
-          mongoose.connection.close();
+          // mongoose.connection.close();
         }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -141,7 +141,7 @@ app.post("/appoint", async (req,res) => {
           else {
               console.log("# Appoint: new document added");
               res.send("# Appoint: new document added");
-              mongoose.connection.close();
+              // mongoose.connection.close();
           }
       })
     }  catch(err) { console.log("ERROR: ", err); }
@@ -172,7 +172,7 @@ app.put("/appoint/:id", async (req,res) => {
           console.log("# Appoint: Document updated.");
           res.send("# Appoint: Document updated.");
         }
-        mongoose.connection.close();
+        // mongoose.connection.close();
       }
     );
   } catch (err) { console.log("ERROR: ", err); }
@@ -199,7 +199,7 @@ app.get("/car/:owneremail", async (req,res) => {
         else {
           console.log("# Car: data loaded");
           res.send(cardata);
-          mongoose.connection.close();
+          // mongoose.connection.close();
         }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -223,7 +223,7 @@ app.post("/car", async (req,res) => {
           else {
               console.log("# Car: new document added");
               res.send("# Car: new document added");
-              mongoose.connection.close();
+              // mongoose.connection.close();
           }
       })
     }  catch(err) { console.log("ERROR: ", err); }
@@ -251,7 +251,7 @@ app.delete("/car/:email", async (req,res) => {
           console.log("# Car: Document(s) deleted.");
           res.send("# Car: Document(s) deleted.");
         }
-        mongoose.connection.close();
+        // mongoose.connection.close();
       }
     );
   } catch (err) {
@@ -296,7 +296,7 @@ app.get("/client/:email", async (req,res) => {
         else {
           console.log("# Client: data loaded");
           res.send(clientdata);
-          mongoose.connection.close();
+          // mongoose.connection.close();
         }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -320,7 +320,7 @@ app.post("/client", async (req,res) => {
           else {
               console.log("# Client: new document added");
               res.send("# Client: new document added");
-              mongoose.connection.close();
+              // mongoose.connection.close();
           }
       })
     }  catch(err) { console.log("ERROR: ", err); }
@@ -348,7 +348,7 @@ app.delete("/client/:email", async (req,res) => {
           console.log("# Client: Document deleted.");
           res.send("# Client: Document deleted.");
         }
-        mongoose.connection.close();
+        // mongoose.connection.close();
       }
     );
   } catch (err) {
@@ -393,7 +393,7 @@ app.get("/store/:email", async (req,res) => {
       else {
         console.log("# Store: data loaded");
         res.send(storedata);
-        mongoose.connection.close();
+        // mongoose.connection.close();
       }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -421,7 +421,7 @@ app.post("/store", async (req,res) => {
           else {
               console.log("# Store: new document added");
               res.send("# Store: new document added");
-              mongoose.connection.close();
+              // mongoose.connection.close();
           }
       })
     }  catch(err) { console.log("ERROR: ", err); }
@@ -449,7 +449,7 @@ app.delete("/store/:email", async (req,res) => {
           console.log("# Store: Document deleted.");
           res.send("# Store: Document deleted.");
         }
-        mongoose.connection.close();
+        // mongoose.connection.close();
       }
     );
   } catch (err) {
@@ -477,7 +477,7 @@ app.get("/ava/:email", async (req,res) => {
         else {
           console.log("# Ava: data loaded");
           res.send(avadata);
-          mongoose.connection.close();
+          // mongoose.connection.close();
         }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -499,7 +499,7 @@ app.get("/ava/:email", async (req,res) => {
 //         else {
 //           console.log("# Ava: data loaded");
 //           res.send(avadata);
-//           mongoose.connection.close();
+//           // mongoose.connection.close();
 //         }
 //     });
 //   } catch (err) { console.log("ERROR: ", err); }
@@ -511,6 +511,7 @@ app.post("/ava", async (req,res) => {
       const { ownerEmail, totalQuota } = req.body;
       const bookedQuota = 0;
       // create all days
+      let alldates=[];
       for (let i=0; i<=364; i++) {
         var eachday = new Date("2023-01-01");
         eachday.setDate(eachday.getDate() + i);
@@ -521,6 +522,7 @@ app.post("/ava", async (req,res) => {
       console.log("database connected");
 
       // save all availability
+      let all_ava = [];
       alldates.forEach(da => {
         for (let j=8; j<=18; j++) {
           let newAva = new Availability({
@@ -530,18 +532,19 @@ app.post("/ava", async (req,res) => {
             totalQuota,
             bookedQuota: 0
           })
-      
-          newAva.save((err) => {
-            if (err) {
-              res.send("ERROR: ", err);
-              console.log("ERROR: ", err);
-            }
-            else {
-                console.log("# Ava: new document added");
-                res.send("# Ava: new document added");
-                mongoose.connection.close();
-            }
-          })
+          all_ava.push(newAva);
+        }
+      });
+
+      Availability.insertMany( all_ava, (err) => {
+        if (err) {
+          res.send("ERROR: ", err);
+          console.log("ERROR: ", err);
+        }
+        else {
+            console.log("# Ava: new document added");
+            res.send("# Ava: new document added");
+            // mongoose.connection.close();
         }
       })
     }  catch(err) { console.log("ERROR: ", err); }
@@ -573,10 +576,40 @@ app.put("/ava/:email/:date/:time", async (req,res) => {
           console.log("# Ava: Document updated.");
           res.send("# Ava: Document updated.");
         }
-        mongoose.connection.close();
+        // mongoose.connection.close();
       }
     );
   } catch (err) { console.log("ERROR: ", err); }
+});
+// DELETE
+app.delete("/ava/:email", async (req,res) => {
+  try {
+    let email = req.params.email;
+
+    await mongoose.connect(url);
+    console.log("database connected");
+
+    Availability.deleteMany(
+      { ownerEmail: email }, 
+      (err, doc) => {
+        if (err) {
+          res.send("ERROR: ", err);
+          console.log("ERROR: ", err);
+        }
+        else if (doc == null) {
+          console.log("# AVA: No matching document was found.");
+          res.send("# AVA: No matching document was found.");
+        } 
+        else {
+          console.log("# AVA: Document(s) deleted.");
+          res.send("# AVA: Document(s) deleted.");
+        }
+        // mongoose.connection.close();
+      }
+    );
+  } catch (err) {
+    console.log("ERROR: ", err);
+  }
 });
 
 

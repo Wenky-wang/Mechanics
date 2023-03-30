@@ -27,6 +27,7 @@ import './css/reqDetail.css';
 import './css/navBar.css';
 import './css/historyOrder.css';
 import './css/admin/adminHome.css';
+import './css/admin/accPopup.css';
 
 
 
@@ -67,7 +68,7 @@ function App() {
       })
   }
   // SIGNUP for users
-  const handleSignup = (type='client', new_obj) => {
+  const handleSignup = (type='client', new_obj, user) => {
     if (type === 'client') {
       // save client profile
       const url_client = urlhead + '/client';
@@ -128,16 +129,9 @@ function App() {
     }
 
     // navigate back to login page
-    navigate('/');
+    if (user === "admin") navigate('/admin/home');
+    else navigate('/');
   }
-
-  // ADMIN operation
-  // 1) delete account (for clients and stores)
-  const adminDeleteAccount = (email, accType) => {
-    const url = `${urlhead}/${accType}/${email}`;
-    axios.delete(url);
-  }
-
   
   return (
     <div className="App">

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {  Link } from 'react-router-dom';
 import ClientRegCar from './clientRegCar';
 
-const ClientReg = ({signupFunction=f=>f}) => {
+const ClientReg = ({signupFunction=f=>f, user="client"}) => {
     
     useEffect(() => {
         document.title = "Client Registration";  
@@ -31,20 +31,28 @@ const ClientReg = ({signupFunction=f=>f}) => {
         }
     ]);
 
+    useEffect(() => {
+        if (user === "admin") setAgree(true); 
+    }, [user]);
+
     // functions
     const onSignup = (event) => {
         event.preventDefault();
 
         // validation
-        if (email === "") {
+        if (email.trim() === "") {
             alert("Please provide your email for registration");
             return;
         }
-        if (name === "") {
+        if (name.trim() === "") {
             alert("Please provide an account name");
             return;
         }
-        if (pwd !== pwd_confirm) {
+        if (pwd.trim() === "") {
+            alert("Please provide a password");
+            return;
+        }
+        if (pwd.trim() !== pwd_confirm.trim()) {
             alert("Password need to be the same as confirmed");
             return;
         }
@@ -68,7 +76,7 @@ const ClientReg = ({signupFunction=f=>f}) => {
             surname,
             cars
         }
-        signupFunction('client', new_info);
+        signupFunction('client', new_info, user);
     }
     const shiftAgree = () => {
         if (agree) setAgree(false);
@@ -102,7 +110,7 @@ const ClientReg = ({signupFunction=f=>f}) => {
     <div className='cl_reg_page_body'>
 
     <div className="cl_reg_page_container">
-        <div className="cl_reg_page_title">Registration</div>
+        <div className="cl_reg_page_title">Client Registration</div>
         <div className="cl_reg_page_content">
             <form>
                 <div className="cl_reg_page_user-details">
@@ -145,9 +153,11 @@ const ClientReg = ({signupFunction=f=>f}) => {
                 <button className='cl_reg_page_add' onClick={addCar}>Add more car</button>
 
                 <div className='cl_reg_page_policy'>
+                    {user === "admin"? null : <>
                     <input type="checkbox" onClick={shiftAgree} name='agree' />
                     &nbsp;
                     *By clicking this button, you are accepting our data privacy policy nasdjlfajdflkjsldfjsljfdl;sadkflsajfa
+                    </>}
                 </div>
                 <div className="cl_reg_page_button_submit">
                     <input type="submit" value="Submit" onClick={onSignup} name='submitBtn' /> 

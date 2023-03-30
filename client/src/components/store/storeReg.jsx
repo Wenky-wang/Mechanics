@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import sampleImg from '../../resource/storeSample.jpg';
 
-const StoreReg = ({signupFunction=f=>f}) => {
+const StoreReg = ({signupFunction=f=>f, user="store"}) => {
     useEffect(() => {
         document.title = "Store Registration";  
     }, []);
@@ -30,41 +30,53 @@ const StoreReg = ({signupFunction=f=>f}) => {
     const [quota, setQuota] = useState(0);
     const [agree, setAgree] = useState(false);
 
+    useEffect(() => {
+        if (user === "admin") setAgree(true); 
+    }, [user]);
+
     // functions
     const onSignup = (event) => {
         event.preventDefault();
 
         // validation
-        if (name === "") {
+        if (name.trim() === "") {
             alert("Please provide your company name");
             return;
         }
-        if (email === "") {
+        if (email.trim() === "") {
             alert("Please provide your email");
             return;
         }
-        if (pwd !== pwd_confirm) {
+        if (pwd.trim() === "") {
+            alert("Please provide a password");
+            return;
+        }
+        if (pwd.trim() !== pwd_confirm.trim()) {
             alert("Password need to be the same as confirmed");
             return;
         }
-        if (supName === "") {
+        if (supName.trim() === "") {
             alert("Please provide your supervisor name");
             return;
         }
-        if (phoneNum === "") {
+        if (phoneNum.trim() === "") {
             alert("Please provide a phone number");
             return;
         }
-        if (address === "") {
+        if (address.trim() === "") {
             alert("Please provide your address");
             return;
         }
-        if (city === "") {
+        if (city.trim() === "") {
             alert("Please provide your city");
             return;
         }
-        if (province === "") {
+        if (province.trim() === "") {
             alert("Please provide your province");
+            return;
+        }
+        if (postal.trim() === "") {
+            alert("Please provide your postal code");
             return;
         }
         if (province === "") {
@@ -94,7 +106,7 @@ const StoreReg = ({signupFunction=f=>f}) => {
             quota,
             pic
         }
-        signupFunction('store', new_info);
+        signupFunction('store', new_info, user);
     }
     const shiftAgree = () => {
         if (agree) setAgree(false);
@@ -269,7 +281,9 @@ const StoreReg = ({signupFunction=f=>f}) => {
             </div>
 
             <div className="store_reg_page_input-box-agree">
+                {user === "admin"? null : <>
                 <input type="checkbox" onClick={shiftAgree}  />&nbsp;*By clicking this button, you are accepting our data privacy policy of our company and consent our usage to your data.
+                </>}
             </div>
 
             <div className="store_reg_page_button">
