@@ -26,7 +26,6 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
             .get(url)
             .then(res => {
                 let filtered = res.data.filter(x => x.apptStatus === "In-Progress" || x.apptStatus === "Waiting Approval");
-                
                 if (filtered.length !== 0)
                     setReqData(filtered);
             })
@@ -36,10 +35,62 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
             axios
             .get(url)
             .then(res => {
-                setReqData(res.data);
+                let filtered = res.data.filter(x => x.apptStatus === "In-Progress");
+                if (filtered.length !== 0)
+                    setReqData(filtered);
             })
         }
-    }, [])
+    }, []);
+
+
+    function handleAccpet(data) {
+        // update appointment database
+        const url_app = `${url_head}/appoint/${data.clientEmail}/${data.storeEmail}/${data.day}/${data.timeSlot}`;
+        let newdata = data;
+        newdata.apptStatus = "In-Progress";
+        axios.put(url_app, newdata);
+
+        // delete frontend data
+        let newreq = reqData.filter(x => 
+            x.clientEmail !== data.clientEmail ||
+            x.storeEmail !== data.storeEmail ||
+            x.day !== data.day ||
+            x.timeSlot !== data.timeSlot);
+        setReqData(newreq);
+    }
+
+    async function handleCancel(data, type) {
+        // update appointment database
+        const url_app = `${url_head}/appoint/${data.clientEmail}/${data.storeEmail}/${data.day}/${data.timeSlot}`;
+        let newapp = data;
+        newapp.apptStatus = "Cancelled";
+        if (type === "store") {
+            newapp.cancelledByStore = true;
+            newapp.cancelledByClient = false;
+        }
+        else {
+            newapp.cancelledByClient = true;
+            newapp.cancelledByStore = false;
+        }
+        axios.put(url_app, newapp);
+
+        // update availability database
+        const url_ava = `${url_head}/ava/${data.storeEmail}/${data.day}/${data.timeSlot}`;
+        console.log(url_ava);
+        let ava;
+        await axios.get(url_ava).then(res => ava =res.data);
+        let newava = ava;
+        newava.bookedQuota = ava.bookedQuota-1;
+        await axios.put(url_ava, newava);
+
+        // delete frontend data
+        let newreq = reqData.filter(x => 
+            x.clientEmail !== data.clientEmail ||
+            x.storeEmail !== data.storeEmail ||
+            x.day !== data.day ||
+            x.timeSlot !== data.timeSlot);
+        setReqData(newreq);
+    }
    
     return ( <>
     <Header title={acc.name || "Mechanics"} />
@@ -47,7 +98,10 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
 
     <div className="Req_Det_Page_Body">
         <div className="Req_Det_Page_Wrapper">
-            {reqData.length === 0? null : reqData.map((x,i) => <Requests key={i} data={x} type={user} cancel={cancel_desc} />)}
+            {reqData.length === 0? <p>No appointments</p> : reqData.map((x,i) => <Requests key={i} 
+                                                                data={x} type={user} cancel={cancel_desc}
+                                                                handleAccpetFunc={() => handleAccpet(x)}
+                                                                handleCancelFunc={() => handleCancel(x, user)} />)}
         </div>
     </div>
 </>);

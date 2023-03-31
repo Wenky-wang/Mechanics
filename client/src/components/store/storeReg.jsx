@@ -196,6 +196,7 @@ const StoreReg = ({signupFunction=f=>f, user="store"}) => {
                         <option value="Ottawa"> Ottawa</option>
                         <option value="Montreal"> Montreal</option>
                         <option value="Quebec City"> Quebec City</option>
+                        <option value="Others"> Others</option>
                     </select>
                 
                 </div>
@@ -211,6 +212,7 @@ const StoreReg = ({signupFunction=f=>f, user="store"}) => {
                         <option value="Ontario"> Ontario</option>
                         <option value="Quebec"> Quebec</option>
                         <option value="Saskatchewan"> Saskatchewan</option>
+                        <option value="Others"> Others</option>
                     </select>
                 
                 </div>

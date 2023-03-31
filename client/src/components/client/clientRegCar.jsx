@@ -21,6 +21,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
                     <option value="BMW"> BMW</option>
                     <option value="Mercedes"> Mercedes</option>
                     <option value="Kia"> Kia</option>
+                    <option value="Others"> Others</option>
               </select>
             </div>
             <div className="cl_reg_page_input-box">
@@ -39,6 +40,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
                     <option value="4Runner"> 4Runner</option>
                     <option value="Auris"> Auris</option>
                     <option value="GR86"> GR86</option>
+                    <option value="Others"> Others</option>
                 </select>
             
             </div>
@@ -79,6 +81,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
                     <option value=""> -- </option>
                     <option value="Auto"> Auto</option>
                     <option value="Mannual"> Mannual</option>
+                    <option value="Others"> Others</option>
                 </select>
             
             </div>
@@ -95,6 +98,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
                     <option value=""> -- </option>
                     <option value="4x2"> 4x2</option>
                     <option value="4x4"> 4x4</option>
+                    <option value="Others"> Others</option>
                 </select>
             
             </div>

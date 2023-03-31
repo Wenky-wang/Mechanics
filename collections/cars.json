@@ -4,7 +4,7 @@
   "model": "2500",
   "year": 2012,
   "mileage": 4101.95,
-  "transmission": "Automatic",
+  "transmission": "Auto",
   "drivetrain": "4x2"
 }, {
   "ownerEmail": "client@test.com",
@@ -12,7 +12,7 @@
   "model": "928",
   "year": 1991,
   "mileage": 552.76,
-  "transmission": "Automatic",
+  "transmission": "Auto",
   "drivetrain": "Others"
 }, {
   "ownerEmail": "client@test.com",
@@ -20,7 +20,7 @@
   "model": "Crown Victoria",
   "year": 2008,
   "mileage": 2649.82,
-  "transmission": "Automatic",
+  "transmission": "Mannual",
   "drivetrain": "4x2"
 }, {
   "ownerEmail": "client2@test.com",
@@ -44,7 +44,7 @@
   "model": "E250",
   "year": 1984,
   "mileage": 1706.51,
-  "transmission": "Automatic",
+  "transmission": "Mannual",
   "drivetrain": "4x2"
 }, {
   "ownerEmail": "client3@test.com",
@@ -61,7 +61,7 @@
   "year": 1992,
   "mileage": 5715.22,
   "transmission": "Others",
-  "drivetrain": "4x2"
+  "drivetrain": "4x4"
 }, {
   "ownerEmail": "client3@test.com",
   "make": "BMW",
@@ -77,5 +77,5 @@
   "year": 2009,
   "mileage": 8183.19,
   "transmission": "Automatic",
-  "drivetrain": "4x2"
+  "drivetrain": "4x4"
 }]

@@ -1,15 +1,17 @@
-const Requests = ({ data, type, cancel="No" }) => {
+const Requests = ({ data, type, cancel="No", handleAccpetFunc=f=>f, handleCancelFunc=f=>f}) => {
 
     function getButton() {
         if (type==="store" && cancel==="Yes")
-            return <tr><button>Cancel Appointment</button> <button>Accept Appointment</button></tr>
+            return <tr>
+                <td><button onClick={handleCancelFunc}>Cancel Appointment</button></td>
+                <td><button onClick={handleAccpetFunc}>Accept Appointment</button></td>
+            </tr>
         else if (type === "client" && cancel==="Yes")
-            return <tr><button>Cancel Appointment</button></tr>
+            return <tr><td><button onClick={handleCancelFunc}>Cancel Appointment</button></td></tr>
         else return null;
     }
-        
 
-    return (
+    return( 
     <table className="appointment_store_Table_One" >
         <tbody>
             <tr className="appointment_store_tr">
@@ -42,8 +44,7 @@ const Requests = ({ data, type, cancel="No" }) => {
             </tr>
             {getButton()}
         </tbody>
-    </table>
-    );
+    </table>);
 }
  
 export default Requests;
