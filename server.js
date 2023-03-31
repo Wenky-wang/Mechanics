@@ -147,17 +147,19 @@ app.post("/appoint", async (req,res) => {
     }  catch(err) { console.log("ERROR: ", err); }
 })
 // UPDATE
-app.put("/appoint/:id", async (req,res) => {
+app.put("/appoint/:clientemail/:storeemail/:day/:timeslot", async (req,res) => {
   try {
     const { apptStatus, cancelledByStore, cancelledByClient } = req.body;
-    let _id = req.params.id;
-    _id = mongoose.Types.ObjectId(_id);
+    let clientEmail = req.params.clientemail;
+    let storeEmail = req.params.storeemail;
+    let day = req.params.day;
+    let timeSlot = req.params.timeslot;
 
     await mongoose.connect(url);
     console.log("database connected");
 
-    Appointments.findByIdAndUpdate(
-      _id,
+    Appointments.findOneAndUpdate(
+      { clientEmail, storeEmail, day, timeSlot },
       { apptStatus, cancelledByStore, cancelledByClient },
       (err, doc) => {
         if (err) {
@@ -482,28 +484,30 @@ app.get("/ava/:email", async (req,res) => {
     });
   } catch (err) { console.log("ERROR: ", err); }
 });
-// app.get("/ava/time/:time", async (req,res) => {
-//   try {
-//     const time = req.params.time;
+app.get("/ava/:email/:date/:time", async (req,res) => {
+  try {
+    const email = req.params.email;
+    const date = req.params.date;
+    const time = req.params.time;
 
-//     await mongoose.connect(url);
-//     console.log("database connected");
+    await mongoose.connect(url);
+    console.log("database connected");
 
-//     Availability.findOne(
-//       { timeSlot: time },
-//       (err, avadata) => {
-//         if (err) {
-//           res.send("ERROR: ", err);
-//           console.log("ERROR: ", err);
-//         }
-//         else {
-//           console.log("# Ava: data loaded");
-//           res.send(avadata);
-//           // mongoose.connection.close();
-//         }
-//     });
-//   } catch (err) { console.log("ERROR: ", err); }
-// });
+    Availability.findOne(
+      { ownerEmail: email, date: date, timeSlot: time },
+      (err, avadata) => {
+        if (err) {
+          res.send("ERROR: ", err);
+          console.log("ERROR: ", err);
+        }
+        else {
+          console.log("# Ava: data loaded");
+          res.send(avadata);
+          // mongoose.connection.close();
+        }
+    });
+  } catch (err) { console.log("ERROR: ", err); }
+});
 
 // ADD
 app.post("/ava", async (req,res) => {

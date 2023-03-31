@@ -75,7 +75,7 @@ const ClientHome = ({acc, url_head}) => {
         <div className="cl_mp_left">
             <div className="cl_mp_left_two">
                 <p>City</p>
-                {["Vancouver", "Burnaby", "New Westminster", "Surrey", "Coquitlam"]
+                {["Vancouver", "Burnaby", "Surrey", "Coquitlam", "Toronto", "Ottawa", "Montreal", "Quebec City"]
                 .map(x => 
                     <div key={x}>
                         <input type="checkbox" onClick={() => filterDisplay(x, "city")} />
