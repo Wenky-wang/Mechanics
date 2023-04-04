@@ -47,7 +47,7 @@ function App() {
     }
 
     // login
-    const url = `${urlhead}/${typeLogin}/${email}`;
+    const url = `${urlhead}/${typeLogin}/${email.toLowerCase()}`;
     await axios
       .get(url)
       .then((res) => {
@@ -73,7 +73,7 @@ function App() {
       // save client profile
       const url_client = urlhead + '/client';
       const newclient = {
-        email: new_obj.email,
+        email: new_obj.email.toLowerCase(),
         password: new_obj.pwd,
         name: new_obj.name,
         phoneNumber: new_obj.phoneNum,
@@ -86,7 +86,7 @@ function App() {
       var newcar;
       new_obj.cars.forEach(c => {
         newcar = {
-          ownerEmail: new_obj.email,
+          ownerEmail: new_obj.email.toLowerCase(),
           make: c.make,
           model: c.model,
           year: c.year,
@@ -102,7 +102,7 @@ function App() {
       const url_store = urlhead + '/store';
       const newstore = {
         name: new_obj.name,
-        email: new_obj.email,
+        email: new_obj.email.toLowerCase(),
         password: new_obj.pwd,
         phoneNumber: new_obj.phoneNum,
         supName: new_obj.supName,
@@ -122,7 +122,7 @@ function App() {
       // save availabilities
       const url_ava = urlhead + '/ava';
       const newAva = {
-        ownerEmail: new_obj.email,
+        ownerEmail: new_obj.email.toLowerCase(),
         totalQuota: new_obj.quota
       }
       axios.post(url_ava, newAva);

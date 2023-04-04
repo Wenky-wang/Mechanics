@@ -50,6 +50,9 @@ const AdminHome = ({ url_head }) => {
 
             const url_car = `${url_head}/car/${email}`;
             axios.delete(url_car);
+
+            const url_app = `${url_head}/appoint/client/${email}`;
+            axios.delete(url_app);
         }
         else {
             const newStore = allStore.filter(x => x.email !== email);
@@ -59,6 +62,9 @@ const AdminHome = ({ url_head }) => {
 
             const url_ava = `${url_head}/ava/${email}`;
             axios.delete(url_ava);
+
+            const url_app = `${url_head}/appoint/store/${email}`;
+            axios.delete(url_app);
         }
     }
 

@@ -12,24 +12,27 @@ const Clients = require("./models/clients");
 const Stores = require("./models/stores");
 const Availability = require("./models/availability");
 
+
 // 1) Admins
 const admindata = require("./collections/admins.json");
+let all_admin = [];
 admindata.forEach(dat => {
   // create document
   let admin = new Admins({
     email: dat.email,
     password: dat.passowrd,
   });
-
-  // save document to db
-  admin.save((err) => {
-    if(err) console.log("- ERROR in saving admin: ", err)
-    else console.log("ADMIN: document inserted successfully");
-  })
+  all_admin.push(admin);
 })
+Admins.insertMany( all_admin, (err) => {
+  if(err) console.log("- ERROR in saving admin: ", err)
+  else console.log("ADMIN: document inserted successfully");
+})
+
 
 // 2) Appointments
 const appdata = require("./collections/appointments.json");
+let all_app = [];
 appdata.forEach(dat => {
   // create document
   let appoint = new Appointments({
@@ -52,16 +55,17 @@ appdata.forEach(dat => {
     cancelledByStore: dat.cancelledByStore,
     cancelledByClient: dat.cancelledByClient
   });
-
-  // save document to db
-  appoint.save((err) => {
-    if(err) console.log("- ERROR in saving appointments: ", err)
-    else console.log("APPOINT: document inserted successfully");
-  })
+  all_app.push(appoint);
 })
+Appointments.insertMany( all_app, (err) => {
+  if(err) console.log("- ERROR in saving appointments: ", err)
+  else console.log("APPOINT: document inserted successfully");
+})
+
 
 // 3) Cars
 const cardata = require("./collections/cars.json");
+let all_car = [];
 cardata.forEach(dat => {
   // create document
   let car = new Cars({
@@ -73,16 +77,17 @@ cardata.forEach(dat => {
     transmission: dat.transmission,
     drivetrain: dat.drivetrain
   });
-
-  // save document to db
-  car.save((err) => {
-    if(err) console.log("- ERROR in saving car: ", err)
-    else console.log("CAR: document inserted successfully");
-  })
+  all_car.push(car);
 })
+Cars.insertMany( all_car, (err) => {
+  if(err) console.log("- ERROR in saving car: ", err)
+  else console.log("CAR: document inserted successfully");
+})
+
 
 // 4) Clients
 const clientdata = require("./collections/clients.json");
+let all_client = [];
 clientdata.forEach(dat => {
   // create document
   let client = new Clients({
@@ -92,16 +97,17 @@ clientdata.forEach(dat => {
     phoneNumber: dat.phoneNumber,
     surName: dat.surName
   });
-
-  // save document to db
-  client.save((err) => {
-    if(err) console.log("- ERROR in saving client: ", err)
-    else console.log("CLIENT: document inserted successfully");
-  })
+  all_client.push(client);
 })
+Clients.insertMany( all_client, (err) => {
+  if(err) console.log("- ERROR in saving client: ", err)
+  else console.log("CLIENT: document inserted successfully");
+})
+
 
 // 5) Stores
 const storedata = require("./collections/stores.json");
+let all_store = [];
 storedata.forEach(dat => {
   // create document
   let store = new Stores({
@@ -121,13 +127,13 @@ storedata.forEach(dat => {
     defaultQuota: dat.defaultQuota,
     imgurl: dat.imgurl
   });
-
-  // save document to db
-  store.save((err) => {
-    if(err) console.log("- ERROR in saving store: ", err)
-    else console.log("STORE: document inserted successfully");
-  })
+  all_store.push(store);
 })
+Stores.insertMany( all_store, (err) => {
+  if(err) console.log("- ERROR in saving store: ", err)
+  else console.log("STORE: document inserted successfully");
+})
+
 
 // 6) Availability
 var alldates=[];
@@ -136,22 +142,22 @@ for (let i=0; i<=364; i++) {
   eachday.setDate(eachday.getDate() + i);
   alldates.push(`${eachday.getFullYear()}-${eachday.getMonth()+1}-${eachday.getDate()}`);
 }
-
+let all_ava = [];
 storedata.forEach(st => {
   alldates.forEach(da => {
     for (let j=8; j<=18; j++) {
-      let ava = new Availability({
+      let newAva = new Availability({
         ownerEmail: st.email,
         date: da,
         timeSlot: j,
         totalQuota: st.defaultQuota,
         bookedQuota: 0
       })
-  
-      ava.save((err) => {
-        if (err) console.log("- ERROR in saving ava: ", err);
-        else console.log("AVA");
-      })
+      all_ava.push(newAva);
     }
   })
+});
+Availability.insertMany( all_ava, (err) => {
+  if (err) console.log("- ERROR in saving ava: ", err);
+  else console.log("AVA: document inserted successfully");
 })
