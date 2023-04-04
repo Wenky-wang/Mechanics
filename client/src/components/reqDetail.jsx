@@ -93,7 +93,7 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
     }
    
     return ( <>
-    <Header title={acc.name || "Mechanics"} />
+    <Header title={user==="store"?acc.name:"Mechanics"} img={user==="store"?acc.imgurl:""} />
     <NavBar navtype={user} />
 
     <div className="Req_Det_Page_Body">

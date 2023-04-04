@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import {  Link } from 'react-router-dom';
 import ClientRegCar from './clientRegCar';
 
 const ClientReg = ({signupFunction=f=>f, user="client"}) => {

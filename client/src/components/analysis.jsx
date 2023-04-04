@@ -16,7 +16,7 @@ const Analysis = ({urlhead, email}) => {
         .then(res => {
             setAppoint(res.data);
         })
-    }, []);
+    }, [urlhead, email]);
 
     // service aggregation
     const allservices = ["Oil Change", "Brake", "Batteries & Electrical", "Cooling System", "Exhaust System", "Scheduled", 

@@ -1,10 +1,9 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
-import { useState } from 'react';
 import sampleImg from '../../resource/storeSample.jpg';
 
 const ClientHomeStore = ({storeInfo={}}) => {
-    const [storePic, setPic] = useState(storeInfo.imgurl);
+    const storePic = storeInfo.imgurl;
 
     return ( 
         <Link className="cl_mp_sel_section" 

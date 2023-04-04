@@ -12,7 +12,7 @@ const StoreHome = ({store_info, url_head}) => {
 
     return (<>
     
-        <Header title={store_info.name || "Store Name"}/>
+        <Header title={store_info.name} img={store_info.imgurl} />
         <NavBar navtype='store' />
         <Calendar urlhead={url_head} storeInfo={store_info} user="store" />
     

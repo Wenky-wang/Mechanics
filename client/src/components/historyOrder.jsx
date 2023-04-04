@@ -65,7 +65,7 @@ const HistoryOrder = ({ acc, url_head, user }) => {
 
     return ( <>
 
-    <Header title={acc.name || "Mechanics"} />
+    <Header title={user==="store"?acc.name:"Mechanics"} img={user==="store"?acc.imgurl:""} />
     <NavBar navtype={user} />
 
     <div className="appointment_store_wrapper">

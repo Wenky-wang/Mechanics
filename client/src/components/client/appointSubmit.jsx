@@ -150,7 +150,7 @@ const AppointSubmit = ({accdata, url_head}) => {
 
     return ( 
 <div className="appo_submi_body">
-    <Header title={"Appointment Booking"}/>   
+    <Header title={"Appointment Booking"} />   
     <div className="appo_submi_wrapper">
 
         <div className="appo_submi_cust_info">
