@@ -86,7 +86,7 @@ const ClientHome = ({acc, url_head}) => {
             <div className="cl_mp_left_three">
                 <p>Service</p>
                 {["Oil Change", "Brake", "Batteries & Electrical", "Cooling System", "Exhaust System", "Scheduled", 
-                    "Maintenance", "3D Wheel Alignment", "Tires", "Heating & A/C", "Used Car Inspection", "Car Detailing"]
+                    "Maintenance", "3D Wheel Alignment", "Tires", "Heating & A/C", "Used Car Inspection", "Car Detailing", "Others"]
                     .map(x => <div key={x}>
                                 <input type="checkbox" onClick={() => filterDisplay(x, "service")} />
                                 <label>{x}</label>

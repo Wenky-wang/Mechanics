@@ -11,7 +11,7 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
 
     useEffect(() => {
         if (user === "store") {
-            const url = `${url_head}/appoint/store/${acc.email}/close`;
+            const url = `${url_head}/appoint/store/${acc.email}`;
             axios
             .get(url)
             .then(res => {

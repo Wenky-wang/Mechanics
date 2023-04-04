@@ -278,6 +278,9 @@ const StoreReg = ({signupFunction=f=>f, user="store"}) => {
                 <div>
                     <input type="checkbox" onClick={() => addOrRemoveService("Car Detailing")} /><label>Car Detailing</label>
                 </div>
+                <div>
+                    <input type="checkbox" onClick={() => addOrRemoveService("Others")} /><label>Others</label>
+                </div>
             </div>
 
             <div className="store_reg_page_input-box-agree">

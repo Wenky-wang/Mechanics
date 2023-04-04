@@ -4,6 +4,7 @@ import Requests from './requests';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
+import StorePopup from './store/storePopup';
 
 const HistoryOrder = ({ acc, url_head, user }) => {
     const [reqData, setReqData] = useState([]);
@@ -11,10 +12,11 @@ const HistoryOrder = ({ acc, url_head, user }) => {
     const [dayStart, setDayStart] = useState("");
     const [dayEnd, setDayEnd] = useState("");
     const [email, setEmail] = useState("");
+    const [popup, setPopup] = useState(false);
 
     useEffect(() => {
         if (user === "store") {
-            const url = `${url_head}/appoint/store/${acc.email}/close`;
+            const url = `${url_head}/appoint/store/${acc.email}`;
             axios
             .get(url)
             .then(res => {
@@ -93,7 +95,13 @@ const HistoryOrder = ({ acc, url_head, user }) => {
             <br />
             { user === "store"?
             <div className="appointment_store_analysis_btn">
-                <input type="button" value="Analysis" />
+                <input type="button" value="Analysis" onClick={() => setPopup(true)} />
+                <StorePopup 
+                    trigger={popup} 
+                    closePopup={() => setPopup(false)}
+                    urlhead = {url_head}
+                    email = {acc.email}
+                    />
             </div> : null }
             
         </div>

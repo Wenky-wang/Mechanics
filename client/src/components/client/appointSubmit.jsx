@@ -12,7 +12,6 @@ const AppointSubmit = ({accdata, url_head}) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
-    const [disable, setDisable] = useState(false);
     const [userChoice, setUserChoice] = useState("Auto Fill by User Profile");
 
     // car info part
@@ -42,14 +41,12 @@ const AppointSubmit = ({accdata, url_head}) => {
             setName(accdata.name);
             setPhone(accdata.phoneNumber);
             setEmail(accdata.email);
-            setDisable(true);
             setUserChoice("Cancel Auto-Filling");
         }
         else {
             setName("");
             setPhone('');
             setEmail('');
-            setDisable(false);
             setUserChoice("Auto Fill by User Profile");
         }
     }
@@ -165,13 +162,13 @@ const AppointSubmit = ({accdata, url_head}) => {
                 <div className="appo_submi_cust_info_input_left">
                     <label htmlFor="appo_submi_cust_info_ipnut_left_name">Name:</label>
                     <input type="text" className="appo_submi_cust_info_ipnut_left_name" name="appo_submi_cust_info_ipnut_left_name"
-                        value={name} onChange={(event) => setName(event.target.value)} disabled={disable} />
+                        value={name} onChange={(event) => setName(event.target.value)} />
                     <label htmlFor="appo_submi_cust_info_ipnut_left_phone">Phone Number:</label>
                     <input type="text" className="appo_submi_cust_info_ipnut_left_phone" name="appo_submi_cust_info_ipnut_left_phone"
-                        value={phone} onChange={(event) => setPhone(event.target.value)} disabled={disable}  />
+                        value={phone} onChange={(event) => setPhone(event.target.value)}  />
                     <label htmlFor="appo_submi_cust_info_ipnut_left_email">Email:</label>
                     <input type="text" className="appo_submi_cust_info_ipnut_left_email" name="appo_submi_cust_info_ipnut_left_email"
-                        value={email} onChange={(event) => setEmail(event.target.value)} disabled={disable}  />
+                        value={email} onChange={(event) => setEmail(event.target.value)}  />
                 </div>
                 <div className="appo_submi_cust_info_input_right">
                     <label htmlFor="appo_submi_cust_info_ipnut_right_address">Appointment Date:</label>
@@ -207,24 +204,24 @@ const AppointSubmit = ({accdata, url_head}) => {
                     <select className="appo_submi_select_make" name="appo_submi_make_select"
                         value={make} onChange={(event) => setMake(event.target.value)} >
                         <option value="">---</option>
-                        <option value="Audi">Audi</option> 
-                        <option value="Toyota">Toyota</option>
-                        <option value="Ford">Ford</option>
-                        <option value="Porsche">Porsche</option>
-                        <option value="Ram">Ram</option>
-                        <option value="Others">Others</option>
+                        <option value="Toyota"> Toyota</option>
+                        <option value="Audi"> Audi</option>
+                        <option value="BMW"> BMW</option>
+                        <option value="Mercedes"> Mercedes</option>
+                        <option value="Kia"> Kia</option>
+                        <option value="Others"> Others</option>
                     </select>
     
                     <label htmlFor="appo_submi_model_select">Model</label> 
                     <select className="appo_submi_select_model" name="appo_submi_model_select"
                         value={model} onChange={(event) => setModel(event.target.value)} >
                         <option value="">---</option>
-                        <option value="A8">A8</option> 
-                        <option value="Corolla">Corolla</option> 
-                        <option value="Crown Victoria">Crown Victoria</option>
-                        <option value="928">928</option> 
-                        <option value="2500">2500</option>
-                        <option value="Others">Others</option>
+                        <option value="Corolla"> Corolla</option>
+                        <option value="Rav4"> Rav4</option>
+                        <option value="4Runner"> 4Runner</option>
+                        <option value="Auris"> Auris</option>
+                        <option value="GR86"> GR86</option>
+                        <option value="Others"> Others</option>
                     </select>
     
                     <label htmlFor="appo_submi_year_select">Year</label> 

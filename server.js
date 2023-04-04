@@ -72,10 +72,9 @@ app.get("/appoint/client/:email", async (req,res) => {
     });
   } catch (err) { console.log("ERROR: ", err); }
 });
-app.get("/appoint/store/:email/:close", async (req,res) => {
+app.get("/appoint/store/:email", async (req,res) => {
   try {
     const email = req.params.email;
-    const close = req.params.close;
 
     await mongoose.connect(url);
     console.log("database connected");
@@ -90,7 +89,7 @@ app.get("/appoint/store/:email/:close", async (req,res) => {
         else {
           console.log("# Appoint: data loaded");
           res.send(appointdata);
-          if (close === "close") mongoose.connection.close();
+          // mongoose.connection.close();
         }
     });
   } catch (err) { console.log("ERROR: ", err); }
@@ -179,7 +178,65 @@ app.put("/appoint/:clientemail/:storeemail/:day/:timeslot", async (req,res) => {
     );
   } catch (err) { console.log("ERROR: ", err); }
 });
-// Appointments could be cancelled, but the record is still there with status changed, the record will not be delted from db
+// DELETE
+app.delete("/appoint/client/:clientEmail", async (req,res) => {
+  try {
+    let clientEmail = req.params.clientEmail;
+
+    await mongoose.connect(url);
+    console.log("database connected");
+
+    Appointments.deleteMany(
+      { clientEmail }, 
+      (err, doc) => {
+        if (err) {
+          res.send("ERROR: ", err);
+          console.log("ERROR: ", err);
+        }
+        else if (doc == null) {
+          console.log("# Appointment: No matching document was found.");
+          res.send("# Appointment: No matching document was found.");
+        } 
+        else {
+          console.log("# Appointment: Document(s) deleted.");
+          res.send("# Appointment: Document(s) deleted.");
+        }
+        // mongoose.connection.close();
+      }
+    );
+  } catch (err) {
+    console.log("ERROR: ", err);
+  }
+});
+app.delete("/appoint/store/:storeEmail", async (req,res) => {
+  try {
+    let storeEmail = req.params.storeEmail;
+
+    await mongoose.connect(url);
+    console.log("database connected");
+
+    Appointments.deleteMany(
+      { storeEmail }, 
+      (err, doc) => {
+        if (err) {
+          res.send("ERROR: ", err);
+          console.log("ERROR: ", err);
+        }
+        else if (doc == null) {
+          console.log("# Appointment: No matching document was found.");
+          res.send("# Appointment: No matching document was found.");
+        } 
+        else {
+          console.log("# Appointment: Document(s) deleted.");
+          res.send("# Appointment: Document(s) deleted.");
+        }
+        // mongoose.connection.close();
+      }
+    );
+  } catch (err) {
+    console.log("ERROR: ", err);
+  }
+});
 
 
 /////// CAR ///////
@@ -209,9 +266,9 @@ app.get("/car/:owneremail", async (req,res) => {
 // ADD
 app.post("/car", async (req,res) => {
   try {
-      const { ownerEmail, make, model, year, mileage, transmission, drivertrain } = req.body;
+      const { ownerEmail, make, model, year, mileage, transmission, drivetrain } = req.body;
       const newCar = new Cars({
-        ownerEmail, make, model, year, mileage, transmission, drivertrain
+        ownerEmail, make, model, year, mileage, transmission, drivetrain
       })
       
       await mongoose.connect(url); 
