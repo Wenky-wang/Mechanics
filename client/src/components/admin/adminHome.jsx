@@ -7,6 +7,10 @@ import AccPopup from "./accPopup";
 const AdminHome = ({ url_head }) => {
     const [allClient, setAllClient] = useState([]);
     const [allStore, setAllStore] = useState([]);
+    // for search and display
+    const [clientDisplay, setClientDisplay] = useState([]);
+    const [storeDisplay, setStoreDisplay] = useState([]);
+    const [searchKey, setSearchKey] = useState("");
     // for popup
     const [clientPopup, setClientPopup] = useState([]);
     const [storePopup, setStorePopup] = useState([]);
@@ -16,6 +20,7 @@ const AdminHome = ({ url_head }) => {
             const url_client = `${url_head}/client`;
             await axios.get(url_client).then(res => { 
                 setAllClient(res.data);
+                setClientDisplay(res.data);
                 let button_set = res.data.map(x => ({
                     ownerEmail: x.email,
                     popup: false
@@ -31,6 +36,7 @@ const AdminHome = ({ url_head }) => {
             const url_store = `${url_head}/store`;
             await axios.get(url_store).then(res => { 
                 setAllStore(res.data);
+                setStoreDisplay(res.data);
                 let button_set = res.data.map(x => ({
                     ownerEmail: x.email,
                     popup: false
@@ -79,13 +85,25 @@ const AdminHome = ({ url_head }) => {
         }
     }
 
+    function searchEmail() {
+        let newClientDisplay = allClient;
+        let newStoreDisplay = allStore;
+
+        if (searchKey.trim() !== "") {
+            newClientDisplay = allClient.filter(x => x.email.toLowerCase().includes(searchKey.trim().toLowerCase()));
+            newStoreDisplay = allStore.filter(x => x.email.toLowerCase().includes(searchKey.trim().toLowerCase()));
+        }
+        setClientDisplay(newClientDisplay);
+        setStoreDisplay(newStoreDisplay);
+    }
+
     return ( 
    <div className="Admin_Main_Page_wrapper">
         <Header title="Mechanics - Admin" />
 
         <div className="Admin_Main_Page_Search">
-            <input type="text" placeholder="Search Engine For Account Email" />
-            <button className="ad_mp_search_button">Search</button>
+            <input type="text" placeholder="Search Engine For Account Email" onChange={(e) => setSearchKey(e.target.value)} />
+            <button className="ad_mp_search_button" onClick={searchEmail} >Search</button>
         </div>
 
         <NavLink className="Admin_Main_Page_CheckBox" to="./addClient">New Client Account</NavLink>
@@ -93,7 +111,7 @@ const AdminHome = ({ url_head }) => {
 
         <table className="Admin_Main_Page_ViewList">
             <tbody>
-                {allClient.map(c => <tr className="Admin_Main_Page_Row_One" key={c.email}>
+                {clientDisplay.map(c => <tr className="Admin_Main_Page_Row_One" key={c.email}>
                     <td className="admin_Main_Page_td1"><strong>Account Type</strong>: Client</td>
                     <td className="admin_Main_Page_td2"><strong>Name</strong>: {c.name}</td>
                     <td className="admin_Main_Page_td3"><strong>Email</strong>: {c.email}</td>
@@ -131,7 +149,7 @@ const AdminHome = ({ url_head }) => {
                     </td>
                     <td className="Admin_Main_Page_RowDeleteButton"><button onClick={() => handleDelete(c.email, "client")}>Delete</button></td>
                 </tr>)}
-                {allStore.map(c => <tr className="Admin_Main_Page_Row_One" key={c.email}>
+                {storeDisplay.map(c => <tr className="Admin_Main_Page_Row_One" key={c.email}>
                     <td className="admin_Main_Page_td1"><strong>Account Type</strong>: Store</td>
                     <td className="admin_Main_Page_td2"><strong>Name</strong>: {c.name}</td>
                     <td className="admin_Main_Page_td3"><strong>Email</strong>: {c.email}</td>

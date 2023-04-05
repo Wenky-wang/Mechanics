@@ -9,6 +9,7 @@ const ClientHome = ({acc, url_head}) => {
     const [display, setDisplay] = useState([]);
     const [cityFilter, setCityFilter] = useState([]);
     const [serviceFilter, setServiceFilter] = useState([]);
+    const [searchKey, setSearchKey] = useState("");
 
     // set page title
     useEffect(() => {
@@ -65,6 +66,13 @@ const ClientHome = ({acc, url_head}) => {
         setDisplay(newDisplay);
     }
 
+    const searchDisplay = () => {
+        let newDisplay = storedata;
+        if (searchKey.trim() !== "")
+            newDisplay = storedata.filter(x => x.name.toLowerCase().includes(searchKey.trim().toLowerCase()));
+        setDisplay(newDisplay);
+    }
+
 
     return ( < div className='cl_mp_body'>
 
@@ -96,8 +104,8 @@ const ClientHome = ({acc, url_head}) => {
 
         <div className="cl_mp_right">
             <div className="cl_mp_search">
-                <input type="text" placeholder="Enter Text" />
-                <button className="cl_mp_search_button">Search</button>
+                <input type="text" placeholder="Search Store Name" onChange={(event) => setSearchKey(event.target.value)} />
+                <button className="cl_mp_search_button" onClick={searchDisplay} >Search</button>
             </div>
             <div className="cl_mp_sel_pics">
                 {display.map(s => <ClientHomeStore storeInfo={s} key={s.email} />)}
