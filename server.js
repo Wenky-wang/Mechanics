@@ -103,7 +103,7 @@ app.get("/appoint/time/:day/:time", async (req,res) => {
     console.log("database connected");
 
     Appointments.find(
-      { day:day, timeSlot:time },
+      { day, timeSlot:time },
       (err, appointdata) => {
         if (err) {
           res.send("ERROR: ", err);

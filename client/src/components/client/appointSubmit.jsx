@@ -234,7 +234,7 @@ const AppointSubmit = ({accdata, url_head}) => {
                 </div>
                     
                 <div className="appo_submi_dropdown_input_right">
-                    <label htmlFor="appo_submi_milage_select">Milage</label> 
+                    <label htmlFor="appo_submi_milage_select">Mileage</label> 
                     <input className="appo_submi_select_milage" name="appo_submi_milage_select"
                         value={mileage} onChange={(event) => setMileage(event.target.value)} />
     
@@ -242,12 +242,12 @@ const AppointSubmit = ({accdata, url_head}) => {
                     <select className="appo_submi_select_transmission" name="appo_submi_transmission_select"
                         value={transmission} onChange={(event) => setTrans(event.target.value)} >
                         <option value="">---</option>
-                        <option value="Automatic">Automatic</option> 
+                        <option value="Automatic">Auto</option> 
                         <option value="Manual">Manual</option>
                         <option value="Others">Others</option>
                     </select>
     
-                    <label htmlFor="appo_submi_drive_select">Drive Train</label> 
+                    <label htmlFor="appo_submi_drive_select">Drivetrain</label> 
                     <select className="appo_submi_select_drive" name="appo_submi_drive_select"
                         value={drivetrain} onChange={(event) => setDT(event.target.value)} >
                         <option value="">---</option>
