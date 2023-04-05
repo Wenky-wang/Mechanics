@@ -80,7 +80,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
                         info.drivetrain)}>
                     <option value=""> -- </option>
                     <option value="Auto"> Auto</option>
-                    <option value="Mannual"> Manual</option>
+                    <option value="Manual"> Manual</option>
                     <option value="Others"> Others</option>
                 </select>
             

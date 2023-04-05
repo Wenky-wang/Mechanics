@@ -52,7 +52,7 @@ const AppointSubmit = ({accdata, url_head}) => {
     }
     function getCarOptions() {
         if (cardata.length === 0) 
-            return <option value="">No car in profile, please input mannually</option>
+            return <option value="">No car in profile, please input manually</option>
         else
             return cardata.map((car, i) => <option key={i} value={i}>
                 {`Car ${i+1}: ${car.make}-${car.model}`}
@@ -194,7 +194,7 @@ const AppointSubmit = ({accdata, url_head}) => {
                     <option value="">---</option>
                     { getCarOptions() }
                 </select>
-                <div>- Or Mannually input car information</div>
+                <div>- Or Manually input car information</div>
             </div>
 
             <div className="appo_submi_dropdown_input">
@@ -242,7 +242,7 @@ const AppointSubmit = ({accdata, url_head}) => {
                     <select className="appo_submi_select_transmission" name="appo_submi_transmission_select"
                         value={transmission} onChange={(event) => setTrans(event.target.value)} >
                         <option value="">---</option>
-                        <option value="Automatic">Auto</option> 
+                        <option value="Auto">Auto</option> 
                         <option value="Manual">Manual</option>
                         <option value="Others">Others</option>
                     </select>
