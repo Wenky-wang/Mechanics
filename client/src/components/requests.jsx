@@ -23,8 +23,8 @@ const Requests = ({ data, type, cancel="No", handleAccpetFunc=f=>f, handleCancel
                 <td className="appointment_store_td" ><b>{data.apptStatus}</b></td>
             </tr>
             <tr className="appointment_store_tr">
-                <td className="appointment_store_td" >{type==="store"?"Client Info":"Store Info"}</td>
-                <td className="appointment_store_td" >{type==="store"?`${data.clientEmail} / ${data.clientPhoneNum}`:`${data.storeEmail}`}</td>
+                <td className="appointment_store_td" >{type!=="client"?"Client Info":"Store Info"}</td>
+                <td className="appointment_store_td" >{type!=="client"?`${data.clientEmail} / ${data.clientPhoneNum}`:`${data.storeEmail}`}</td>
             </tr>
             <tr className="appointment_store_tr">
                 <td className="appointment_store_td" >Date</td>

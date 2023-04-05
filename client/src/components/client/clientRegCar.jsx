@@ -57,7 +57,7 @@ const ClientRegCar = ({info, updateFunc=f=>f, deleteFunc=f=>f}) => {
                         info.drivetrain)} /> 
             </div>
             <div className="cl_reg_page_input-box">
-                <span className="cl_reg_page_details">mileage</span>
+                <span className="cl_reg_page_details">Mileage</span>
                 <input type="text" placeholder="in km" name='mileage'
                     onChange={(event) => updateFunc(
                         info.id,
