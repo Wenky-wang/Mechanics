@@ -49,8 +49,13 @@ const AdminHome = ({ url_head }) => {
 
     function handleDelete(email, type) {
         if (type === "client") {
+            // remove frontend data
             const newClient = allClient.filter(x => x.email !== email);
             setAllClient(newClient);
+            const newClientDisplay = clientDisplay.filter(x => x.email !== email);
+            setClientDisplay(newClientDisplay);
+
+            // remove database
             const url_client = `${url_head}/client/${email}`;
             axios.delete(url_client);
 
@@ -61,8 +66,13 @@ const AdminHome = ({ url_head }) => {
             axios.delete(url_app);
         }
         else {
+            // remove frontend data
             const newStore = allStore.filter(x => x.email !== email);
             setAllStore(newStore);
+            const newStoreDisplay = storeDisplay.filter(x => x.email !== email);
+            setStoreDisplay(newStoreDisplay);
+            
+            // remove database
             const url_store = `${url_head}/store/${email}`;
             axios.delete(url_store);
 
