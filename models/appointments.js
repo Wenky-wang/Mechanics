@@ -22,7 +22,7 @@ const appointmentSchema = new mongoose.Schema({
         type: String
     },
     timeSlot: {
-        type: String
+        type: Number
     },
     carMake: {
         type: String
@@ -31,7 +31,7 @@ const appointmentSchema = new mongoose.Schema({
         type: String
     },
     carYear: {
-        type: String
+        type: Number
     },
     carMileage: {
         type: Number
