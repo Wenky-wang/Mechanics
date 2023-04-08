@@ -9,7 +9,7 @@
 }
 
 .appo_submi_wrapper{
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -31,7 +31,7 @@
     background-color: lightblue;
     border-radius: 1vh;
     box-shadow: 0 0.75vh 1.5vh rgba(0, 0, 0, 0.1);
-    margin: 0 0 1vh 0;
+    margin: 2vh 0 2vh 0;
 }
 
 .appo_submi_p{
@@ -54,6 +54,7 @@
 
     width: 80%;
     margin: 0 0 0 1vh;
+    max-width: 70%;
 }
 
 
@@ -92,7 +93,7 @@
     background-color: lightgoldenrodyellow;
     border-radius: 1vh;
     box-shadow: 0 0.75vh 1.5vh rgba(0, 0, 0, 0.1);
-    margin: 0 0 1vh 0;
+    margin: 2vh 0 2vh 0;
     font-size: 2vh;
 }
 
@@ -127,6 +128,7 @@
 .appo_submi_select_drive{
     width: 80%;
     margin: 0 0 0 1vh;
+    max-width: 70%;
 }
 
 .appo_submi_prob_desc{
@@ -137,7 +139,7 @@
     background-color: lightgreen;
     border-radius: 1vh;
     box-shadow: 0 0.75vh 1.5vh rgba(0, 0, 0, 0.1);
-    margin: 0 0 1vh 0;
+    margin: 2vh 0 2vh 0;
     font-size: 2vh;
 }
 

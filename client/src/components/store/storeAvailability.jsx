@@ -53,7 +53,7 @@ const StoreAvailability = ({ url_head, storeEmail, assignData=f=>f }) => {
         </div>
         <div className="storehome_threebtn">
             <input type="button" value="Clear" onClick={clearQuota} />
-            <Link to={"/store/orders"} state={{ data }}>Detail</Link>
+            <Link class="storehome_threebtn_link" to={"/store/orders"} state={{ data }}>Detail</Link>
         </div>
     </div> 
 );
