@@ -157,6 +157,6 @@ describe('Admin Operations', function() {
     await driver.findElement(By.css(".Admin_Main_Page_Row_One:nth-child(6) > .Admin_Main_Page_RowDeleteButton > button")).click()
     // delete store
     await driver.findElement(By.css(".Admin_Main_Page_Row_One:nth-child(11) > .Admin_Main_Page_RowDeleteButton > button")).click()
-    // driver.quit()
+    await driver.quit()
   })
 })
