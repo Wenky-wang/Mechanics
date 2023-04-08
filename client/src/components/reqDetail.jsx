@@ -4,6 +4,7 @@ import Requests from './requests';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
+import moment from 'moment';
 
 const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
     const [reqData, setReqData] = useState([]);
@@ -40,7 +41,7 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
                     setReqData(filtered);
             })
         }
-    }, []);
+    }, [user]);
 
 
     function handleAccpet(data) {
@@ -98,10 +99,16 @@ const ReqDetail = ({ acc, url_head, user, cancel_desc }) => {
 
     <div className="Req_Det_Page_Body">
         <div className="Req_Det_Page_Wrapper">
-            {reqData.length === 0? <p>No appointments</p> : reqData.map((x,i) => <Requests key={i} 
-                                                                data={x} type={user} cancel={cancel_desc}
-                                                                handleAccpetFunc={() => handleAccpet(x)}
-                                                                handleCancelFunc={() => handleCancel(x, user)} />)}
+            {reqData.length === 0? <p>No appointments</p>
+            :
+            reqData.sort((x1, x2) => {
+                let x1time = moment(`${x1.day}:${x1.timeSlot}`, "YYYY-M-D:H");
+                let x2time = moment(`${x2.day}:${x2.timeSlot}`, "YYYY-M-D:H");
+                if (x1time >= x2time) return 1;
+                else return -1;
+            }).map((x,i) => <Requests key={i} data={x} type={user} cancel={cancel_desc}
+                                      handleAccpetFunc={() => handleAccpet(x)}
+                                      handleCancelFunc={() => handleCancel(x, user)} />)}
         </div>
     </div>
 </>);

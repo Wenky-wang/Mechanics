@@ -109,7 +109,14 @@ const HistoryOrder = ({ acc, url_head, user }) => {
         <div className="appointment_store_right">
             <div className="appointment_store_client_info">
 
-            {displayData.length === 0? null : displayData.map((x,i) => <Requests key={i} data={x} type={user} />)}
+            {displayData.length === 0? null
+            :
+            displayData.sort((x1, x2) => {
+                let x1time = moment(`${x1.day}:${x1.timeSlot}`, "YYYY-M-D:H");
+                let x2time = moment(`${x2.day}:${x2.timeSlot}`, "YYYY-M-D:H");
+                if (x1time >= x2time) return 1;
+                else return -1;
+            }).map((x,i) => <Requests key={i} data={x} type={user} />)}
 
             </div>
 
