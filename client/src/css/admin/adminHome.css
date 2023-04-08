@@ -8,22 +8,24 @@
 .Admin_Main_Page_Search {
     position: relative;
     height: 7.6vh;
-    max-width: 137vh;
-    width: 100%;
+    
+    width: 70%;
     border: 1px solid black;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+    margin: 2vw auto;
+    
 }
 .Admin_Main_Page_Search input {
   height: 100%;
-  width: 50%;
+  width: 70%;
   outline: none;
   font-size: 1.82vh;
   font-weight: 400;
   border: none;
   padding: 0 23.6vh 0 3.8vh;
   background-color: transparent;
+  
 }
 .ad_mp_search_button {
 position: absolute;
@@ -44,23 +46,37 @@ transform: translateY(-50%);
 .Admin_Main_Page_CheckBox{
     background-color: lightyellow;
     width: 20%;
-    margin:  3vh 2vw 2vh 0;
+    margin:  3vh 2vw 2vh 5vw;
     font-size: 1.2vw;
+    
 }
 
 .Admin_Main_Page_ViewList {
     border-radius: 10px;
     width: 90%;
-    margin: 0 auto;
+    margin: 1vw auto;
     background-color: lightblue;
     font-size: 1vw;
+   
+    
 }
+
+
+
+
 .Admin_Main_Page_ViewList > tbody > tr:not(:last-child) {
     border-bottom: 1px solid rgb(125, 125, 125);
+
+}
+
+.Admin_Main_Page_ViewList > tbody > tr {
+    margin-top: 10%;
+
 }
 .Admin_Main_Page_Row_One > td {
     margin: 0 1vw;
-    padding: 0.2vh 0.5vw;
+    padding: 0.2vh  0.5vw;
+    
 }
 
 .admin_Main_Page_td1 {
@@ -85,8 +101,9 @@ transform: translateY(-50%);
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     margin: 0.5vh;
-    background-color: rgb(250, 211, 210);
-    font-size: 2vh;
+    background-color: #4070f4;
+    font-size: 1vw;
+    color: #fff;
 }
 
 

@@ -126,6 +126,7 @@
   background-color: #ffffff;
   border-radius: 5px;
   padding: 0.5vw 1vw 1vw 1vw;
+  
 }
 .storehome_p1 {
   font-size: 0.8vw;
@@ -151,7 +152,24 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  
 }
 .storehome_threebtn input {
   width: 30%;
+  
+}
+
+.storehome_threebtn_link {
+  width: 30%;
+  font-size: 0.6vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(240, 238, 238);
+  align-items: center;
+  border-width: 0.01vw;
+  border-style: solid;
+  border-radius: 0.2vw;
 }
