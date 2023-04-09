@@ -85,6 +85,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    
 }
 
 .appointment_store_search {
@@ -134,6 +135,7 @@
     display: inline-block;
     border-radius: 1vh;
     box-shadow: 0 0.75vh 1.5vh rgba(0, 0, 0, 0.1);
+    
 
 }
 
@@ -162,8 +164,9 @@
 }
 
 .appointment_store_td{
-    min-width: 23vh
     
+    padding-right: 15vh;
+    padding-left: 2vh;
     
 }
 

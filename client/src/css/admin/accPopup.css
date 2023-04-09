@@ -27,10 +27,11 @@
     font-weight: bold;
     color: white;
     border: none;
-    background-color: rgb(90, 90, 90);
+    background-color: #7fa3df;
 }
 .admin_popup_close:hover {
-    text-decoration: underline;
+    
+    background-color: #426eb9;
 }
 
 .admin_popup_inner > h3 {
