@@ -137,7 +137,7 @@ describe('Admin Operations', function() {
     // scroll down until see submit button, allow 2000 for webpage to settle down
     const submit_button = driver.findElement(By.css(".store_reg_page_button > input"))
     await driver.executeScript("arguments[0].scrollIntoView();", submit_button);
-    await driver.sleep(2000)
+    await driver.sleep(3000)
     // click checkbox
     await driver.findElement(By.css("div:nth-child(4) > input:nth-child(1)")).click()
     await driver.findElement(By.css("div:nth-child(9) > input:nth-child(1)")).click()

@@ -31,16 +31,10 @@ describe('Client Operations', function() {
     await driver.get(login)
 
     // choose type, input email and pwd, then submit
-    await driver.findElement(By.name("loginUser-userType")).click()
+    await driver.findElement(By.css(".loginUser-BtnClient")).click()
     await driver.findElement(By.css(".loginUser-email")).sendKeys("client@test.com")
     await driver.findElement(By.css(".loginUser-pwd")).sendKeys("123")
     await driver.findElement(By.css(".loginUser-submit")).click()
-
-    // save cookies
-    const account_cookies = await driver.manage().getCookies();
-    console.log(account_cookies)
-    for (let cookie of account_cookies)
-      await driver.manage().addCookie(cookie);
 
     // assert url changed
     redirectUrl(home)

@@ -10,7 +10,7 @@
     height: 7.5vh;
     width: 75%;
     border: 1px solid black;
-    margin: 3.7vh auto 2.2vh auto;
+    margin: 3.7vh auto 3vh auto;
     border-radius: 10px;
     box-shadow: 0 0.75vh 1.5vh rgba(0, 0, 0, 0.1);
     display: flex;
@@ -47,7 +47,8 @@
 
 .Admin_Main_Page_CheckBox{
 
-    padding: 0.2vh 0.4vw;
+    padding: 0.8vh 1.2vw;
+    font-weight: bold;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     margin:  0 0 0 5vw;
@@ -61,11 +62,9 @@
 .Admin_Main_Page_ViewList {
     border-radius: 10px;
     width: 90%;
-    margin: 1vw auto;
+    margin: 3vh auto;
     background-color: lightblue;
     font-size: 1vw;
-   
-    
 }
 
 
@@ -104,7 +103,7 @@
     display: flex;
     justify-content: center;
     width: fit-content;
-    padding: 0.2vh 0.4vw;
+    padding: 0.4vh 0.8vw;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     margin: 0.5vh;
