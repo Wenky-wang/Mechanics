@@ -7,47 +7,54 @@
 
 .Admin_Main_Page_Search {
     position: relative;
-    height: 7.6vh;
-    
-    width: 70%;
+    height: 7.5vh;
+    width: 75%;
     border: 1px solid black;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    margin: 2vw auto;
+    margin: 3.7vh auto 2.2vh auto;
+    border-radius: 10px;
+    box-shadow: 0 0.75vh 1.5vh rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
     
 }
 .Admin_Main_Page_Search input {
-  height: 100%;
-  width: 70%;
-  outline: none;
-  font-size: 1.82vh;
-  font-weight: 400;
-  border: none;
-  padding: 0 23.6vh 0 3.8vh;
-  background-color: transparent;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 2.4vh;
+    font-weight: 400;
+    border: none;
+    margin-left: 3vw;
+    background-color: transparent;
+    letter-spacing: 0.1vw;
   
 }
 .ad_mp_search_button {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-  right: 3vh;
-  font-size: 2vh;
-  font-weight: 400;
-  color: #fff;
-  border: none;
-  padding: 2vh 4.5vh;
-  border-radius: 8px;
-  background-color: #4070f4;
-  cursor: pointer;
+    right: 3vh;
+    font-size: 2.4vh;
+    font-weight: 400;
+    color: white;
+    border: none;
+    padding: 1.7vh 3vw;
+    border-radius: 8px;
+    background-color: #7fa3df;
+    cursor: pointer;
 }
 
+.ad_mp_search_button:hover{
+    background-color: #426eb9;
+}
 
 .Admin_Main_Page_CheckBox{
-    background-color: lightyellow;
-    width: 20%;
-    margin:  3vh 2vw 2vh 5vw;
-    font-size: 1.2vw;
+
+    padding: 0.2vh 0.4vw;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin:  0 0 0 5vw;
+    background-color: #7fa3df;
+    font-size: 1vw;
+    color: #fff;
+    text-decoration: none;
     
 }
 
@@ -101,11 +108,15 @@ transform: translateY(-50%);
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     margin: 0.5vh;
-    background-color: #4070f4;
+    background-color: #7fa3df;
     font-size: 1vw;
     color: #fff;
 }
 
+.Admin_Main_Page_RowDeleteButton > button:hover,
+.Admin_Main_Page_RowDetailButton > button:hover{
+    background-color: #426eb9;
+}
 
     
 

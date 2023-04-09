@@ -90,7 +90,7 @@
   cursor: pointer;
 }
 .cl_mp_search_button:hover {
-    text-decoration: underline;
+    background-color: #426eb9;
 }
 
 .cl_mp_sel_pics {
