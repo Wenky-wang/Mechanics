@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha --serial --reporter mochawesome --require mochawesome/register --reporter-options reportDir=./test/reports",
+    "test": "npx mocha test/*.js --serial --reporter mochawesome --require mochawesome/register --reporter-options reportDir=./test/reports",
     "backend": "nodemon ./server.js",
     "frontend": "npm start --prefix client",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""

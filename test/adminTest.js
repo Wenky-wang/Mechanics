@@ -20,7 +20,7 @@ describe('Admin Operations', function() {
 
     driver.wait(until.urlIs(url))
     driver.navigate().to(url)
-    await driver.sleep(1000)
+    await driver.sleep(2000)
   }
 
   it('login', async function() {
@@ -57,7 +57,7 @@ describe('Admin Operations', function() {
     // click search engine and enter search key "store"
     await driver.findElement(By.css("input")).sendKeys("store")
     await driver.findElement(By.css(".ad_mp_search_button")).click()
-    await driver.sleep(500)
+    await driver.sleep(2000)
 
     // check the last element and click detail to check if match expected value
     await driver.findElement(By.css(".Admin_Main_Page_Row_One:nth-child(5) > .Admin_Main_Page_RowDetailButton > button")).click()
@@ -70,7 +70,7 @@ describe('Admin Operations', function() {
     await driver.findElement(By.css("input")).clear()
     await driver.findElement(By.css("input")).sendKeys(" ")
     await driver.findElement(By.css(".ad_mp_search_button")).click()
-    await driver.sleep(500)
+    await driver.sleep(2000)
 
     // click detail to check
     await driver.findElement(By.css(".Admin_Main_Page_Row_One:nth-child(1) > .Admin_Main_Page_RowDetailButton > button")).click()
@@ -106,7 +106,7 @@ describe('Admin Operations', function() {
     // search result in search engine and click detail button to check if match expected value
     await driver.findElement(By.css("input")).sendKeys("addclient")
     await driver.findElement(By.css(".ad_mp_search_button")).click()
-    await driver.sleep(500)
+    await driver.sleep(2000)
     await driver.findElement(By.css(".Admin_Main_Page_RowDetailButton > button")).click()
     assert(await driver.findElement(By.css("tr:nth-child(2) > td:nth-child(2)")).getText() == "admin.addclient@test.com")
     await driver.findElement(By.css(".admin_popup_close")).click()
@@ -134,10 +134,10 @@ describe('Admin Operations', function() {
     let optionProvince = await selectProvince.findElement(By.css("option[value='British Columbia']"));
     await optionProvince.click()
 
-    // scroll down until see submit button, allow 1000 for webpage to settle down
+    // scroll down until see submit button, allow 2000 for webpage to settle down
     const submit_button = driver.findElement(By.css(".store_reg_page_button > input"))
     await driver.executeScript("arguments[0].scrollIntoView();", submit_button);
-    await driver.sleep(500)
+    await driver.sleep(2000)
     // click checkbox
     await driver.findElement(By.css("div:nth-child(4) > input:nth-child(1)")).click()
     await driver.findElement(By.css("div:nth-child(9) > input:nth-child(1)")).click()
@@ -151,7 +151,7 @@ describe('Admin Operations', function() {
     await driver.findElement(By.css("input")).clear()
     await driver.findElement(By.css("input")).sendKeys(" ")
     await driver.findElement(By.css(".ad_mp_search_button")).click()
-    await driver.sleep(500)
+    await driver.sleep(2000)
 
     // delete client
     await driver.findElement(By.css(".Admin_Main_Page_Row_One:nth-child(6) > .Admin_Main_Page_RowDeleteButton > button")).click()
